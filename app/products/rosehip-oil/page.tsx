@@ -1,32 +1,73 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, Droplet, Sparkles, Shield, Leaf } from 'lucide-react';
+import ResearchSection from '@/components/ResearchSection';
+import { getResearchByProduct } from '@/lib/research-data';
+import { Metadata } from 'next';
+import { PAGE_SEO, BRAND_INFO, generateProductStructuredData } from '@/lib/seo-config';
 
-export const metadata = {
-  title: 'Rosehip Oil - The Potent Superfood | Rauha Wellness',
-  description: 'Clinically studied for exceptional ability to support natural collagen production, reduce fine lines, and deeply even out skin tone.',
+export const metadata: Metadata = {
+  title: PAGE_SEO.rosehip.title,
+  description: PAGE_SEO.rosehip.description,
+  keywords: PAGE_SEO.rosehip.keywords,
+  alternates: {
+    canonical: `${BRAND_INFO.domain}/products/rosehip-oil`,
+  },
+  openGraph: {
+    title: PAGE_SEO.rosehip.title,
+    description: PAGE_SEO.rosehip.description,
+    url: `${BRAND_INFO.domain}/products/rosehip-oil`,
+    type: 'website',
+    images: [
+      {
+        url: '/Rosehipoil_carton.jpg',
+        width: 1200,
+        height: 1200,
+        alt: 'Rosehip Oil - The Potent Superfood',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: PAGE_SEO.rosehip.title,
+    description: PAGE_SEO.rosehip.description,
+    images: ['/Rosehipoil_carton.jpg'],
+  },
 };
 
 export default function RosehipOilPage() {
-  return (
-    <main className="min-h-screen pt-20 bg-rauha-light">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  const rosehipResearch = getResearchByProduct('rosehip');
+  const productStructuredData = generateProductStructuredData('rosehip');
+
+  try {
+    return (
+      <main className="min-h-screen pt-28 sm:pt-36 bg-rauha-light">
+        {/* Structured Data - Product */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(productStructuredData),
+          }}
+        />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-rauha-text hover:text-rauha-accent transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-rauha-text hover:text-rauha-accent transition-colors mb-6 sm:mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Home
         </Link>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-16">
-          <div className="relative aspect-square bg-gradient-to-br from-rauha-subtle/40 to-rauha-taupe/60 rounded-3xl overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <Droplet className="w-32 h-32 text-rauha-subtle mx-auto mb-4 opacity-60" />
-                <p className="text-rauha-text font-medium">Product Image</p>
-              </div>
-            </div>
-            <div className="absolute top-6 right-6">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 mb-12 sm:mb-16">
+          <div className="relative aspect-square bg-gradient-to-br from-rauha-subtle/40 to-rauha-taupe/60 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+            <Image
+              src="/Rosehipoil_carton.jpg"
+              alt="Rosehip Oil - The Potent Superfood"
+              fill
+              className="object-contain p-6 sm:p-8"
+              priority
+            />
+            <div className="absolute top-6 right-6 z-10">
               <span className="bg-rauha-accent text-rauha-dark text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wide shadow-lg">
                 Expert Finalized
               </span>
@@ -46,13 +87,13 @@ export default function RosehipOilPage() {
               </p>
             </div>
 
-            <p className="text-lg text-rauha-text leading-relaxed mb-8">
+            <p className="text-lg text-rauha-text leading-relaxed mb-6 sm:mb-8">
               Clinically studied for its exceptional ability to support natural collagen production, reduce fine lines,
               and deeply even out skin tone. Rosehip Oil is nature's most concentrated source of essential fatty acids
               and trans-retinoic acid, scientifically proven to transform aging skin.
             </p>
 
-            <div className="bg-rauha-taupe/20 rounded-2xl p-6 mb-8">
+            <div className="bg-rauha-taupe/20 rounded-2xl p-6 mb-6 sm:mb-8">
               <h3 className="text-lg font-bold text-rauha-dark mb-4">Coming Soon - December 2025</h3>
               <p className="text-rauha-text mb-4">
                 Join our waitlist to receive <strong className="text-rauha-accent">15% OFF</strong> at launch.
@@ -74,7 +115,7 @@ export default function RosehipOilPage() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-12 sm:mb-16">
           <div className="bg-white rounded-2xl p-8 shadow-lg">
             <h2 className="text-2xl font-bold text-rauha-dark mb-6 flex items-center gap-3">
               <Sparkles className="w-6 h-6 text-rauha-accent" />
@@ -138,7 +179,7 @@ export default function RosehipOilPage() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-rauha-dark to-rauha-text rounded-3xl p-10 lg:p-12 text-white mb-16">
+        <div className="bg-gradient-to-br from-rauha-dark to-rauha-text rounded-2xl sm:rounded-3xl p-10 lg:p-12 text-white mb-12 sm:mb-16">
           <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
             <Shield className="w-8 h-8 text-rauha-accent" />
             The Science Behind Rosehip
@@ -197,6 +238,22 @@ export default function RosehipOilPage() {
           </div>
         </div>
       </div>
+
+      <ResearchSection
+        papers={rosehipResearch}
+        title="Clinical Evidence for Rosehip Oil"
+        description="Explore the peer-reviewed research demonstrating Rosehip Oil's powerful anti-aging, collagen-boosting, and skin regeneration properties."
+      />
     </main>
-  );
+    );
+  } catch (error) {
+    console.error('Error rendering Rosehip Oil page:', error);
+    return (
+      <main className="min-h-screen pt-28 sm:pt-36 bg-rauha-light flex items-center justify-center px-4">
+        <div className="text-center">
+          <p className="text-rauha-text">Unable to load product details. Please refresh the page.</p>
+        </div>
+      </main>
+    );
+  }
 }

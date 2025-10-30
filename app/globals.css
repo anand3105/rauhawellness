@@ -79,4 +79,78 @@
   body {
     @apply bg-background text-foreground;
   }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Fade-in animation for page load */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale animation */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Apply animations to sections */
+section {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Button press animation */
+button, a[href] {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:active, a[href]:active {
+  transform: scale(0.98);
+}
+
+/* Form input animations */
+input, textarea, select {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  animation: scaleIn 0.3s ease;
+}
+
+/* Logo - no animations */
+.logo-link,
+.logo-link *,
+.logo-image {
+  animation: none !important;
+  transition: opacity 0.2s ease;
+}
+
+.logo-link:active {
+  transform: translate(-50%, 0) !important;
 }
