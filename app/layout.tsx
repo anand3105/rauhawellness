@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
 import PWAInstallPrompt from '@/components/PWAInstallPrompt';
+import IOSInstallPrompt from '@/components/IOSInstallPrompt';
 import { BRAND_INFO, PRIMARY_KEYWORDS } from '@/lib/seo-config';
 
 export const metadata: Metadata = {
@@ -179,6 +180,7 @@ export default function RootLayout({
         <Footer />
         <CookieConsent />
         <PWAInstallPrompt />
+        <IOSInstallPrompt />
       </body>
     </html>
   );

@@ -38,6 +38,14 @@ Your Rauha Wellness website is now a **Progressive Web App (PWA)**! This means u
 - Only shows to users who haven't dismissed it
 - Registers service worker automatically
 - Beautiful UI matching Rauha brand
+- Works on Android and Desktop (Chrome, Edge)
+
+### 5. **components/IOSInstallPrompt.tsx**
+- iOS-specific install guide for Safari users
+- Shows step-by-step installation instructions
+- Detects iPhone/iPad automatically
+- Appears after 8 seconds (doesn't conflict with main prompt)
+- Re-appears after 7 days if dismissed
 
 ### 5. **app/layout.tsx** (Updated)
 - Added PWA meta tags
@@ -168,6 +176,13 @@ Test your PWA score:
 5. App appears on home screen!
 
 ### iOS (Safari)
+**Option 1: Automatic Prompt (Recommended)**
+1. Visit rauhawellness.com in Safari
+2. Wait 8 seconds for install guide to appear
+3. Follow the 3-step instructions shown
+4. App appears on home screen!
+
+**Option 2: Manual Installation**
 1. Visit rauhawellness.com in Safari
 2. Tap Share button (bottom center)
 3. Scroll down → "Add to Home Screen"
