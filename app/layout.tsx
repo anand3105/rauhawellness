@@ -129,6 +129,7 @@ export default function RootLayout({
               contactPoint: {
                 '@type': 'ContactPoint',
                 email: BRAND_INFO.email,
+                telephone: BRAND_INFO.phone,
                 contactType: 'Customer Service',
                 availableLanguage: ['English'],
               },

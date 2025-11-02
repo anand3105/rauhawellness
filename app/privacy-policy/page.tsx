@@ -33,6 +33,7 @@ export default function PrivacyPolicy() {
             <h2 className="text-2xl font-semibold text-rauha-text mb-4">3. Contact Us</h2>
             <div className="mt-4 p-4 bg-rauha-light rounded-lg">
               <p className="text-gray-700"><strong>Email:</strong> info@rauhawellness.com</p>
+              <p className="text-gray-700"><strong>Phone:</strong> +91-9410863777</p>
             </div>
           </section>
         </div>

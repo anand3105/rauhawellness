@@ -123,7 +123,7 @@ export default function TermsAndConditionsPage() {
             <div className="bg-rauha-taupe/10 p-6 rounded-lg">
               <p className="text-rauha-text">
                 <strong>Email:</strong> info@rauhawellness.com<br />
-                <strong>Phone:</strong> +91-1234567890<br />
+                <strong>Phone:</strong> +91-9410863777<br />
                 <strong>Location:</strong> India
               </p>
             </div>

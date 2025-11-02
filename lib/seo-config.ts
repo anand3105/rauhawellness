@@ -55,6 +55,7 @@ export const BRAND_INFO = {
   description: 'Science-based skincare powered by extensive research and expert formulation',
   domain: 'https://rauhawellness.com',
   email: 'info@rauhawellness.com',
+  phone: '+91-9410863777',
   social: {
     linkedin: 'https://www.linkedin.com/company/rauhawellness/',
     instagram: 'https://www.instagram.com/rauhawellness?igsh=am5xNXdxcmZydjVu',
