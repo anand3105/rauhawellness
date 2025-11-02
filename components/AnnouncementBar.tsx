@@ -13,6 +13,10 @@ export default function AnnouncementBar() {
             </span>
             <span className="text-rauha-light/60">•</span>
             <span className="font-medium text-xs sm:text-sm tracking-wide">
+              🎁 Enter our giveaway to win premium oils + ₹500 gift card!
+            </span>
+            <span className="text-rauha-light/60">•</span>
+            <span className="font-medium text-xs sm:text-sm tracking-wide">
               10 Years of Skin Science. Expert Finalized.
             </span>
             <span className="text-rauha-light/60">•</span>
@@ -24,6 +28,10 @@ export default function AnnouncementBar() {
           <div className="flex items-center gap-4 sm:gap-8 px-4 sm:px-8 animate-scroll group-hover:[animation-play-state:paused]" aria-hidden="true">
             <span className="font-medium text-xs sm:text-sm tracking-wide">
               ✨ Rauha is launching a research-backed skincare breakthrough this December
+            </span>
+            <span className="text-rauha-light/60">•</span>
+            <span className="font-medium text-xs sm:text-sm tracking-wide">
+              🎁 Enter our giveaway to win premium oils + ₹500 gift card!
             </span>
             <span className="text-rauha-light/60">•</span>
             <span className="font-medium text-xs sm:text-sm tracking-wide">

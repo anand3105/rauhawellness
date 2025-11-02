@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
 import { sendQuizNotification, sendQuizConfirmation } from '@/lib/email/sender';
+import { prisma } from '@/lib/prisma';
 
 // Force dynamic rendering for this route
 export const dynamic = 'force-dynamic';
@@ -17,40 +16,16 @@ interface QuizData {
   timestamp: string;
 }
 
-const DATA_DIR = path.join(process.cwd(), 'data');
-const QUIZ_FILE = path.join(DATA_DIR, 'quiz-responses.json');
-
-// Ensure data directory exists
-async function ensureDataDir() {
-  try {
-    await fs.access(DATA_DIR);
-  } catch {
-    await fs.mkdir(DATA_DIR, { recursive: true });
-  }
-}
-
-// Read existing quiz responses
-async function readQuizData(): Promise<QuizData[]> {
-  try {
-    await ensureDataDir();
-    const data = await fs.readFile(QUIZ_FILE, 'utf-8');
-    return JSON.parse(data);
-  } catch {
-    return [];
-  }
-}
-
-// Write quiz responses
-async function writeQuizData(data: QuizData[]) {
-  await ensureDataDir();
-  await fs.writeFile(QUIZ_FILE, JSON.stringify(data, null, 2));
-}
-
 export async function POST(request: NextRequest) {
+  console.log('\n');
+  console.log('╔═══════════════════════════════════════════════════════════╗');
+  console.log('║           📝 QUIZ SUBMISSION RECEIVED                     ║');
+  console.log('╚═══════════════════════════════════════════════════════════╝');
+
   try {
     const body = await request.json();
 
-    console.log('📝 Quiz API received:', {
+    console.log('Received data:', {
       email: body.email || 'MISSING',
       recommendedProduct: body.recommendedProduct || body.recommended_product || 'MISSING',
       bodyKeys: Object.keys(body)
@@ -69,10 +44,30 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Read existing data
-    const quizData = await readQuizData();
+    // Save to database
+    try {
+      const skinType = body.skin_type || body.skinType || '';
+      const skinConcerns = body.skin_concerns || body.skinConcerns || [];
+      const skinGoals = body.skin_goals || body.skinGoals || [];
+      const ageRange = body.age_range || body.ageRange || '';
 
-    // Add new response
+      await prisma.quiz_results.create({
+        data: {
+          email: body.email,
+          skin_type: skinType,
+          skin_concerns: Array.isArray(skinConcerns) ? skinConcerns.join(', ') : String(skinConcerns || ''),
+          skin_goals: Array.isArray(skinGoals) ? skinGoals.join(', ') : String(skinGoals || ''),
+          age_range: ageRange,
+          recommended_product: recommendedProduct,
+        },
+      });
+      console.log('✅ Quiz result saved to database');
+    } catch (dbError: any) {
+      console.error('❌ Database error:', dbError);
+      // Continue even if database save fails
+    }
+
+    // Create response data
     const newResponse: QuizData = {
       email: body.email,
       skinType: body.skin_type || body.skinType || '',
@@ -83,40 +78,76 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString(),
     };
 
-    console.log('✅ Quiz data validated successfully');
+    console.log('✅ Quiz data validated and formatted');
+    console.log(JSON.stringify(newResponse, null, 2));
+    console.log('');
 
-    quizData.push(newResponse);
+    // Send emails
+    console.log('╔═══════════════════════════════════════════════════════════╗');
+    console.log('║           📧 SENDING EMAIL NOTIFICATIONS                  ║');
+    console.log('╚═══════════════════════════════════════════════════════════╝');
+    console.log('');
 
-    // Save updated data
-    await writeQuizData(quizData);
-    console.log('✅ Quiz data saved successfully');
+    let adminSuccess = false;
+    let customerSuccess = false;
 
-    // Send email notifications (don't wait for them, don't block the response)
-    console.log('📤 Sending email notifications...');
+    // 1. Send to admin
+    try {
+      console.log('→ Sending admin notification...\n');
+      adminSuccess = await sendQuizNotification(newResponse);
+      if (adminSuccess) {
+        console.log('✅ Admin notification: SUCCESS\n');
+      } else {
+        console.error('⚠️ Admin notification: FAILED (returned false)\n');
+      }
+    } catch (error: any) {
+      console.error('❌ Admin notification: EXCEPTION');
+      console.error('Error:', error.message);
+      console.error('Stack:', error.stack);
+      console.error('');
+    }
 
-    // 1. Notify admin
-    sendQuizNotification(newResponse).catch(error => {
-      console.error('❌ Failed to send admin notification:', error);
-    });
+    // 2. Send to customer
+    try {
+      console.log('→ Sending customer confirmation...\n');
+      customerSuccess = await sendQuizConfirmation(newResponse);
+      if (customerSuccess) {
+        console.log('✅ Customer confirmation: SUCCESS\n');
+      } else {
+        console.error('⚠️ Customer confirmation: FAILED (returned false)\n');
+      }
+    } catch (error: any) {
+      console.error('❌ Customer confirmation: EXCEPTION');
+      console.error('Error:', error.message);
+      console.error('Stack:', error.stack);
+      console.error('');
+    }
 
-    // 2. Send confirmation to customer
-    sendQuizConfirmation(newResponse).catch(error => {
-      console.error('❌ Failed to send customer confirmation:', error);
-    });
+    console.log('╔═══════════════════════════════════════════════════════════╗');
+    console.log('║           📊 EMAIL SUMMARY                                ║');
+    console.log('╚═══════════════════════════════════════════════════════════╝');
+    console.log('Admin notification:', adminSuccess ? '✅ SENT' : '❌ FAILED');
+    console.log('Customer confirmation:', customerSuccess ? '✅ SENT' : '❌ FAILED');
+    console.log('');
 
     return NextResponse.json(
       {
         success: true,
         message: 'Quiz response saved successfully',
-        data: newResponse
+        data: newResponse,
+        emailStatus: {
+          adminNotification: adminSuccess,
+          customerConfirmation: customerSuccess
+        }
       },
       { status: 200 }
     );
 
-  } catch (error) {
-    console.error('Error saving quiz response:', error);
+  } catch (error: any) {
+    console.error('❌ Error processing quiz response:', error);
+    console.error('Stack:', error.stack);
     return NextResponse.json(
-      { error: 'Failed to save quiz response' },
+      { error: 'Failed to save quiz response', details: error.message },
       { status: 500 }
     );
   }
@@ -124,20 +155,24 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   try {
-    const quizData = await readQuizData();
+    const quizResults = await prisma.quiz_results.findMany({
+      orderBy: {
+        created_at: 'desc'
+      }
+    });
 
     return NextResponse.json(
       {
         success: true,
-        count: quizData.length,
-        data: quizData
+        count: quizResults.length,
+        data: quizResults
       },
       { status: 200 }
     );
   } catch (error) {
-    console.error('Error reading quiz data:', error);
+    console.error('❌ Error fetching quiz results:', error);
     return NextResponse.json(
-      { error: 'Failed to read quiz data' },
+      { error: 'Failed to fetch quiz results' },
       { status: 500 }
     );
   }

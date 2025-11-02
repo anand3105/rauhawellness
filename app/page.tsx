@@ -2,6 +2,8 @@ import HeroSection from '@/components/HeroSection';
 import ProductShowcase from '@/components/ProductShowcase';
 import CTASection from '@/components/CTASection';
 import ResearchSection from '@/components/ResearchSection';
+import SkinQuizCTA from '@/components/SkinQuizCTA';
+import GiveawayCTA from '@/components/GiveawayCTA';
 import { getAllResearch } from '@/lib/research-data';
 import { Metadata } from 'next';
 import { PAGE_SEO, BRAND_INFO } from '@/lib/seo-config';
@@ -49,7 +51,9 @@ export default function Home() {
         maxDisplay={6}
         showBackgroundImage={true}
       />
+      <SkinQuizCTA />
       <CTASection />
+      <GiveawayCTA />
     </main>
   );
 }

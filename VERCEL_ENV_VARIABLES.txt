@@ -1,0 +1,62 @@
+========================================
+VERCEL ENVIRONMENT VARIABLES
+========================================
+
+Copy these variables to your Vercel project:
+Dashboard > Settings > Environment Variables
+
+========================================
+FOR CUSTOM EMAIL (info@rauhawellness.com)
+========================================
+
+Variable: ADMIN_EMAIL
+Value: info@rauhawellness.com
+
+Variable: EMAIL_HOST
+Value: smtp.hostinger.com
+(or your actual SMTP host - check with your email provider)
+
+Variable: EMAIL_PORT
+Value: 465
+(use 465 for SSL or 587 for TLS)
+
+Variable: EMAIL_SECURE
+Value: true
+(true for port 465, false for port 587)
+
+Variable: EMAIL_USER
+Value: info@rauhawellness.com
+
+Variable: EMAIL_PASS
+Value: [YOUR EMAIL PASSWORD]
+(your password for info@rauhawellness.com)
+
+========================================
+IMPORTANT NOTES
+========================================
+
+1. DO NOT set EMAIL_SERVICE when using custom SMTP
+2. Get your SMTP host from your email hosting provider:
+   - Hostinger: smtp.hostinger.com
+   - cPanel: mail.yourdomain.com
+   - Check your hosting control panel
+3. Set these for ALL environments (Production, Preview, Development)
+4. After adding variables, redeploy your application
+
+========================================
+HOW TO FIND YOUR SMTP SETTINGS
+========================================
+
+Login to your email hosting provider and look for:
+- "Email Settings"
+- "SMTP Configuration"
+- "Outgoing Mail Server"
+- Or contact support: "What are my SMTP settings?"
+
+Common SMTP hosts:
+- Hostinger: smtp.hostinger.com
+- cPanel: mail.rauhawellness.com
+- GoDaddy: smtpout.secureserver.net
+- Namecheap: mail.privateemail.com
+
+========================================

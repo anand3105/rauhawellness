@@ -107,6 +107,11 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/giveaway" className="text-rauha-light/80 hover:text-rauha-accent transition-colors text-sm flex items-center gap-1">
+                    Giveaway Contest 🎁
+                  </Link>
+                </li>
+                <li>
                   <Link href="/products/kumkumadi-oil" className="text-rauha-light/80 hover:text-rauha-accent transition-colors text-sm">
                     Kumkumadi Oil
                   </Link>
@@ -114,6 +119,11 @@ export default function Footer() {
                 <li>
                   <Link href="/products/rosehip-oil" className="text-rauha-light/80 hover:text-rauha-accent transition-colors text-sm">
                     Rosehip Oil
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/careers" className="text-rauha-light/80 hover:text-rauha-accent transition-colors text-sm">
+                    Careers
                   </Link>
                 </li>
                 <li>
@@ -157,6 +167,11 @@ export default function Footer() {
                   <li>
                     <Link href="/terms-and-conditions" className="text-rauha-light/80 hover:text-rauha-accent transition-colors text-sm">
                       Terms & Conditions
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/cookie-policy" className="text-rauha-light/80 hover:text-rauha-accent transition-colors text-sm">
+                      Cookie Policy
                     </Link>
                   </li>
                 </ul>
@@ -212,7 +227,6 @@ export default function Footer() {
       </footer>
     );
   } catch (error) {
-    console.error('Error rendering Footer:', error);
     return null;
   }
 }

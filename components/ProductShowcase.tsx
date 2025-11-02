@@ -90,7 +90,6 @@ export default function ProductShowcase() {
       </section>
     );
   } catch (error) {
-    console.error('Error rendering ProductShowcase:', error);
     return null;
   }
 }

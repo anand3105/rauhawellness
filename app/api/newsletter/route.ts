@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
-import { sendEmail } from '@/lib/email/sender';
+import { sendEmail, sendNewsletterConfirmation } from '@/lib/email/sender';
+import { prisma } from '@/lib/prisma';
 
 // Force dynamic rendering for this route
 export const dynamic = 'force-dynamic';
@@ -10,35 +9,6 @@ export const runtime = 'nodejs';
 interface NewsletterEntry {
   email: string;
   timestamp: string;
-}
-
-const DATA_DIR = path.join(process.cwd(), 'data');
-const NEWSLETTER_FILE = path.join(DATA_DIR, 'newsletter.json');
-
-// Ensure data directory exists
-async function ensureDataDir() {
-  try {
-    await fs.access(DATA_DIR);
-  } catch {
-    await fs.mkdir(DATA_DIR, { recursive: true });
-  }
-}
-
-// Read existing newsletter entries
-async function readNewsletterData(): Promise<NewsletterEntry[]> {
-  try {
-    await ensureDataDir();
-    const data = await fs.readFile(NEWSLETTER_FILE, 'utf-8');
-    return JSON.parse(data);
-  } catch {
-    return [];
-  }
-}
-
-// Write newsletter entries
-async function writeNewsletterData(data: NewsletterEntry[]) {
-  await ensureDataDir();
-  await fs.writeFile(NEWSLETTER_FILE, JSON.stringify(data, null, 2));
 }
 
 export async function POST(request: NextRequest) {
@@ -67,33 +37,39 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Read existing data
-    const newsletterData = await readNewsletterData();
-
-    // Check if email already exists
-    const existingEntry = newsletterData.find(entry => entry.email === body.email);
-    if (existingEntry) {
-      return NextResponse.json(
-        {
-          success: true,
-          message: 'You are already subscribed to our newsletter!',
-          data: existingEntry
+    // Save to database
+    try {
+      await prisma.newsletters.create({
+        data: {
+          email: body.email,
         },
-        { status: 200 }
-      );
+      });
+      console.log('✅ Newsletter subscription saved to database');
+    } catch (dbError: any) {
+      // Handle duplicate email
+      if (dbError.code === 'P2002') {
+        return NextResponse.json(
+          { error: 'This email is already subscribed to the newsletter' },
+          { status: 409 }
+        );
+      }
+      console.error('❌ Database error:', dbError);
+      throw dbError;
     }
 
-    // Add new entry
+    // Create entry data
     const newEntry: NewsletterEntry = {
       email: body.email,
       timestamp: new Date().toISOString(),
     };
 
-    newsletterData.push(newEntry);
+    // Log the submission (visible in Vercel logs)
+    console.log('✅ New Newsletter Subscription:', JSON.stringify(newEntry, null, 2));
 
-    // Save updated data
-    await writeNewsletterData(newsletterData);
-    console.log('✅ Newsletter subscription saved successfully');
+    // Send confirmation email to customer
+    sendNewsletterConfirmation(body.email).catch(error => {
+      console.error('❌ Failed to send customer confirmation:', error);
+    });
 
     // Send notification email to admin
     sendEmail({
@@ -125,8 +101,6 @@ export async function POST(request: NextRequest) {
                 <p><strong>📅 Subscribed:</strong> ${new Date().toLocaleString()}</p>
               </div>
 
-              <p>Total newsletter subscribers: <strong>${newsletterData.length}</strong></p>
-
               <div class="footer">
                 <p>Rauha Wellness - Admin Notification</p>
               </div>
@@ -135,7 +109,7 @@ export async function POST(request: NextRequest) {
         </body>
         </html>
       `,
-      text: `New Newsletter Subscription\n\nEmail: ${body.email}\nSubscribed: ${new Date().toLocaleString()}\n\nTotal subscribers: ${newsletterData.length}`
+      text: `New Newsletter Subscription\n\nEmail: ${body.email}\nSubscribed: ${new Date().toLocaleString()}`
     }).catch(error => {
       console.error('❌ Failed to send admin notification:', error);
     });
@@ -150,7 +124,7 @@ export async function POST(request: NextRequest) {
     );
 
   } catch (error) {
-    console.error('Error saving newsletter subscription:', error);
+    console.error('❌ Error processing newsletter subscription:', error);
     return NextResponse.json(
       { error: 'Failed to subscribe to newsletter' },
       { status: 500 }
@@ -160,20 +134,24 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   try {
-    const newsletterData = await readNewsletterData();
+    const subscriptions = await prisma.newsletters.findMany({
+      orderBy: {
+        created_at: 'desc'
+      }
+    });
 
     return NextResponse.json(
       {
         success: true,
-        count: newsletterData.length,
-        data: newsletterData
+        count: subscriptions.length,
+        data: subscriptions
       },
       { status: 200 }
     );
   } catch (error) {
-    console.error('Error reading newsletter data:', error);
+    console.error('❌ Error fetching newsletter subscriptions:', error);
     return NextResponse.json(
-      { error: 'Failed to read newsletter data' },
+      { error: 'Failed to fetch newsletter subscriptions' },
       { status: 500 }
     );
   }

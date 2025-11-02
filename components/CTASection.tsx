@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect, useRef } from 'react';
 
 export default function CTASection() {
   const [email, setEmail] = useState('');
@@ -8,6 +8,52 @@ export default function CTASection() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlayingForward, setIsPlayingForward] = useState(true);
+  const frameRef = useRef<number>();
+
+  // Boomerang effect - play forward then reverse
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Start video after 2 seconds
+    const startTimeout = setTimeout(() => {
+      video.play().catch(() => {});
+    }, 2000);
+
+    const playReverse = () => {
+      if (!video) return;
+
+      // Play in reverse by decreasing currentTime
+      if (video.currentTime <= 0) {
+        // Reached start, switch to forward
+        setIsPlayingForward(true);
+        video.play().catch(() => {});
+      } else {
+        video.currentTime = Math.max(0, video.currentTime - 0.033); // ~30fps
+        frameRef.current = requestAnimationFrame(playReverse);
+      }
+    };
+
+    const handleEnded = () => {
+      // Video ended (reached end while playing forward)
+      setIsPlayingForward(false);
+      video.pause();
+      // Start playing in reverse
+      frameRef.current = requestAnimationFrame(playReverse);
+    };
+
+    video.addEventListener('ended', handleEnded);
+
+    return () => {
+      clearTimeout(startTimeout);
+      video.removeEventListener('ended', handleEnded);
+      if (frameRef.current) {
+        cancelAnimationFrame(frameRef.current);
+      }
+    };
+  }, [isPlayingForward]);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -42,7 +88,6 @@ export default function CTASection() {
       setEmail('');
       setSelectedProduct('');
     } catch (err: any) {
-      console.error('Error submitting form:', err);
       setError(err.message || 'Something went wrong. Please try again.');
     } finally {
       setIsLoading(false);
@@ -51,8 +96,22 @@ export default function CTASection() {
 
   try {
     return (
-      <section id="waitlist" className="py-12 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-rauha-light via-rauha-taupe/20 to-rauha-light">
-        <div className="max-w-3xl mx-auto">
+      <section id="waitlist" className="relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background Video - Boomerang Effect */}
+        <video
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/rauha.mp4" type="video/mp4" />
+        </video>
+
+        {/* Overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-rauha-light/90 via-rauha-taupe/40 to-rauha-light/90" />
+
+        <div className="max-w-3xl mx-auto relative z-10">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-rauha-dark mb-4 sm:mb-6 px-2">
               Unlock the Secret.<br />
@@ -149,7 +208,6 @@ export default function CTASection() {
       </section>
     );
   } catch (error) {
-    console.error('Error rendering CTASection:', error);
     return null;
   }
 }

@@ -2,9 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { Sparkles, ArrowRight } from 'lucide-react';
 
 export default function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [contact, setContact] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
 
   const heroImages = [
     '/90c98e07-3c4d-4ed3-9e5f-bd1b9dfea1b5.jpg',
@@ -21,6 +25,57 @@ export default function HeroSection() {
 
     return () => clearInterval(interval);
   }, [heroImages.length]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage('');
+
+    try {
+      // Determine if input is email or phone
+      const isEmail = contact.includes('@');
+
+      // Validate phone number if not email
+      if (!isEmail) {
+        // Remove +91 prefix if present, then remove all non-digit characters
+        let phoneStr = contact.trim();
+        phoneStr = phoneStr.replace(/^\+91[-\s]?/, ''); // Remove +91, +91-, or +91 prefix
+        const cleanedPhone = phoneStr.replace(/\D/g, ''); // Remove all non-digits
+
+        if (cleanedPhone.length !== 10) {
+          setMessage('Please enter a valid 10-digit phone number');
+          setLoading(false);
+          return;
+        }
+      }
+
+      const payload = isEmail
+        ? { email: contact, source: 'hero_form' }
+        : {
+            phone: contact.trim().replace(/^\+91[-\s]?/, '').replace(/\D/g, ''),
+            source: 'hero_form'
+          }; // Send cleaned phone without +91
+
+      const response = await fetch('/api/community', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage('🎉 Welcome to the Rauha community!');
+        setContact('');
+      } else {
+        setMessage(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setMessage('Failed to join. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   try {
     return (
@@ -63,21 +118,68 @@ export default function HeroSection() {
               Skin is our only focus. Science is our only guide.
             </p>
 
-            <div className="mt-8 sm:mt-10">
-              <a
-                href="/#waitlist"
-                className="relative inline-block bg-rauha-accent hover:bg-rauha-accent/90 text-rauha-dark font-semibold px-10 py-4 rounded-full transition-all duration-300 hover:shadow-2xl hover:scale-110 text-base sm:text-lg shadow-lg hover:-translate-y-1 border-2 border-rauha-accent hover:border-rauha-dark overflow-hidden group"
-              >
-                <span className="relative z-10">✨ Be First to Glow ✨</span>
-                <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent"></span>
-              </a>
+            <div className="mt-8 sm:mt-10 max-w-lg mx-auto px-4">
+              {/* Join Community Box */}
+              <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-lg p-5 sm:p-6 border border-rauha-accent/20 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-rauha-accent animate-pulse" />
+                  <h3 className="text-base sm:text-lg font-bold text-rauha-dark text-center">
+                    Be First to Glow
+                  </h3>
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-rauha-accent animate-pulse" />
+                </div>
+
+                <p className="text-xs sm:text-sm text-rauha-text/80 text-center mb-4 leading-snug">
+                  Join our exclusive community for early access to science-backed skincare
+                </p>
+
+                <form onSubmit={handleSubmit} className="space-y-3">
+                  <div className="relative group">
+                    <input
+                      type="text"
+                      placeholder="Email or phone (+91 optional)"
+                      value={contact}
+                      onChange={(e) => setContact(e.target.value)}
+                      required
+                      className="w-full px-4 sm:px-5 py-2.5 sm:py-3 bg-white/50 border border-rauha-accent/30 rounded-full text-rauha-dark placeholder-rauha-text/40 focus:outline-none focus:border-rauha-accent focus:bg-white focus:shadow-md text-xs sm:text-sm transition-all duration-300"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full bg-gradient-to-r from-rauha-accent to-rauha-taupe hover:from-rauha-taupe hover:to-rauha-accent text-white font-semibold px-5 py-2.5 sm:py-3 rounded-full transition-all duration-500 hover:shadow-lg hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm group"
+                  >
+                    {loading ? (
+                      <span className="flex items-center gap-2">
+                        <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                        Joining...
+                      </span>
+                    ) : (
+                      <>
+                        Join the Rauha Community
+                        <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                      </>
+                    )}
+                  </button>
+
+                  {message && (
+                    <p className={`text-xs sm:text-sm text-center font-medium animate-in fade-in slide-in-from-top-2 duration-300 ${message.includes('Welcome') ? 'text-green-600' : 'text-red-600'}`}>
+                      {message}
+                    </p>
+                  )}
+                </form>
+
+                <p className="text-[10px] sm:text-xs text-rauha-text/50 text-center mt-3">
+                  Get exclusive early access & special offers
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
     );
   } catch (error) {
-    console.error('Error rendering HeroSection:', error);
     return null;
   }
 }

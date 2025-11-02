@@ -3,11 +3,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import SearchDropdown from './SearchDropdown';
+import Sidebar from './Sidebar';
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   try {
     return (
@@ -15,29 +16,13 @@ export default function Header() {
         <header className="fixed top-[40px] sm:top-[44px] left-0 right-0 z-40 bg-rauha-light/95 backdrop-blur-sm border-b border-rauha-subtle/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16 sm:h-20">
-              {/* Left Navigation (Desktop) */}
-              <nav className="hidden md:flex items-center gap-4">
-                <Link
-                  href="/why-rauha"
-                  className="text-rauha-dark hover:text-rauha-accent font-medium transition-colors text-sm"
-                >
-                  Why Rauha
-                </Link>
-                <Link
-                  href="/skin-quiz"
-                  className="text-rauha-dark hover:text-rauha-accent font-medium transition-colors text-sm"
-                >
-                  Skin Survey
-                </Link>
-              </nav>
-
-              {/* Mobile Menu Button (Left side on mobile) */}
+              {/* Menu Button Only */}
               <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 text-rauha-dark hover:text-rauha-accent transition-colors z-50"
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+                className="p-2 text-rauha-dark hover:text-rauha-accent transition-colors"
                 aria-label="Toggle menu"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                <Menu className="w-6 h-6" />
               </button>
 
               {/* Centered Logo */}
@@ -70,44 +55,11 @@ export default function Header() {
           </div>
         </header>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="fixed inset-0 z-30 md:hidden">
-            <div
-              className="fixed inset-0 bg-rauha-dark/50 backdrop-blur-sm"
-              onClick={() => setMobileMenuOpen(false)}
-            />
-            <nav className="fixed top-[96px] sm:top-[108px] right-0 left-0 bg-rauha-light border-b border-rauha-subtle/20 shadow-xl">
-              <div className="px-4 py-6 space-y-4">
-                <Link
-                  href="/why-rauha"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-rauha-dark hover:text-rauha-accent font-medium transition-colors text-base py-3 px-4 rounded-lg hover:bg-rauha-taupe/20"
-                >
-                  Why Rauha
-                </Link>
-                <Link
-                  href="/skin-quiz"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-rauha-dark hover:text-rauha-accent font-medium transition-colors text-base py-3 px-4 rounded-lg hover:bg-rauha-taupe/20"
-                >
-                  Skin Survey
-                </Link>
-                <a
-                  href="/#waitlist"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block bg-rauha-accent hover:bg-rauha-accent/90 text-rauha-dark font-medium px-4 py-3 rounded-lg transition-all duration-300 text-center"
-                >
-                  Unlock the Secret
-                </a>
-              </div>
-            </nav>
-          </div>
-        )}
+        {/* Sidebar Component */}
+        <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       </>
     );
   } catch (error) {
-    console.error('Error rendering Header:', error);
     return (
       <header className="fixed top-[40px] sm:top-[44px] left-0 right-0 z-40 bg-rauha-light/95 backdrop-blur-sm border-b border-rauha-subtle/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,19 +1,25 @@
-// Email configuration
+// Email configuration - DUAL SMTP SYSTEM
 export const EMAIL_CONFIG = {
   // The email address where all notifications will be sent
-  ADMIN_EMAIL: process.env.ADMIN_EMAIL || 'anandjnu007@gmail.com',
+  ADMIN_EMAIL: process.env.ADMIN_EMAIL || 'info@rauhawellness.com',
 
-  // Email service configuration (gmail, hostinger, or custom)
-  SERVICE: process.env.EMAIL_SERVICE || '',
+  // Hostinger SMTP (for admin notifications)
+  HOSTINGER: {
+    HOST: process.env.EMAIL_HOST || 'smtp.hostinger.com',
+    PORT: parseInt(process.env.EMAIL_PORT || '465'),
+    SECURE: process.env.EMAIL_SECURE === 'true',
+    USER: process.env.EMAIL_USER || 'info@rauhawellness.com',
+    PASS: process.env.EMAIL_PASS || '',
+  },
 
-  // Custom SMTP settings (for Hostinger and other providers)
-  HOST: process.env.EMAIL_HOST || '',
-  PORT: parseInt(process.env.EMAIL_PORT || '465'),
-  SECURE: process.env.EMAIL_SECURE === 'true',
-
-  // Sender credentials
-  USER: process.env.EMAIL_USER || '',
-  PASS: process.env.EMAIL_PASS || '',
+  // Gmail SMTP (for customer confirmations)
+  GMAIL: {
+    HOST: process.env.GMAIL_HOST || 'smtp.gmail.com',
+    PORT: parseInt(process.env.GMAIL_PORT || '587'),
+    SECURE: process.env.GMAIL_SECURE === 'true',
+    USER: process.env.GMAIL_USER || '',
+    PASS: process.env.GMAIL_PASS || '',
+  },
 };
 
 // Email templates
@@ -285,6 +291,98 @@ Save 15% on your first order!
 
 Coming December 2025
 Use code EARLY15 when we launch!
+
+Stay radiant,
+The Rauha Wellness Team
+
+rauhawellness.com
+    `.trim(),
+  }),
+
+  // Customer confirmation email for newsletter
+  newsletterConfirmation: (data: any) => ({
+    subject: `✨ Welcome to Rauha Wellness Newsletter!`,
+    html: `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <style>
+          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+          .header { background: linear-gradient(135deg, #C98A53 0%, #C8B0A9 100%); color: white; padding: 40px 30px; text-align: center; border-radius: 10px 10px 0 0; }
+          .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
+          .welcome { font-size: 18px; font-weight: bold; color: #49392C; margin-bottom: 20px; }
+          .discount-box { background: linear-gradient(135deg, #C98A53 0%, #C8B0A9 100%); color: white; padding: 30px; border-radius: 10px; text-align: center; margin: 20px 0; }
+          .discount-code { font-size: 32px; font-weight: bold; letter-spacing: 3px; background: white; color: #C98A53; padding: 15px 30px; border-radius: 5px; display: inline-block; margin: 10px 0; }
+          .benefit { background: white; padding: 15px; margin: 10px 0; border-left: 4px solid #C98A53; }
+          .footer { text-align: center; margin-top: 30px; color: #999; font-size: 12px; }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h1 style="margin: 0; font-size: 28px;">Welcome to Rauha Wellness!</h1>
+            <p style="margin: 10px 0 0 0; font-size: 16px;">You're now part of our wellness community</p>
+          </div>
+          <div class="content">
+            <div class="welcome">
+              Hi there! 👋
+            </div>
+            <p>Thank you for subscribing to the Rauha Wellness newsletter! We're thrilled to have you join our community of wellness enthusiasts.</p>
+
+            <div class="discount-box">
+              <p style="margin: 0 0 10px 0; font-size: 18px;">🎁 Welcome Gift For You!</p>
+              <div class="discount-code">WELCOME15</div>
+              <p style="margin: 10px 0 0 0; font-size: 14px;">Save 15% on your first purchase!</p>
+            </div>
+
+            <p><strong>What to Expect:</strong></p>
+
+            <div class="benefit">
+              <strong>📚 Expert Tips:</strong> Science-backed skincare advice and wellness insights
+            </div>
+
+            <div class="benefit">
+              <strong>🎁 Exclusive Offers:</strong> Subscriber-only deals and early access to new products
+            </div>
+
+            <div class="benefit">
+              <strong>🌟 Product Updates:</strong> Be the first to know about new launches and formulations
+            </div>
+
+            <div class="benefit">
+              <strong>💡 Educational Content:</strong> Learn about ingredients, routines, and skincare science
+            </div>
+
+            <p style="margin-top: 30px;"><strong>Coming December 2025</strong></p>
+            <p>Our products are launching soon! Stay tuned for exclusive previews and early bird offers.</p>
+
+            <p style="margin-top: 20px;"><strong>Stay radiant,</strong><br>The Rauha Wellness Team</p>
+          </div>
+          <div class="footer">
+            <p>This email was sent to ${data.email}</p>
+            <p>Rauha Wellness | rauhawellness.com</p>
+          </div>
+        </div>
+      </body>
+      </html>
+    `,
+    text: `
+Welcome to Rauha Wellness Newsletter!
+
+Thank you for subscribing! We're thrilled to have you in our community.
+
+YOUR WELCOME GIFT: WELCOME15
+Save 15% on your first purchase!
+
+What to Expect:
+- Expert Tips: Science-backed skincare advice
+- Exclusive Offers: Subscriber-only deals
+- Product Updates: First to know about launches
+- Educational Content: Skincare science & tips
+
+Coming December 2025
+Stay tuned for exclusive previews!
 
 Stay radiant,
 The Rauha Wellness Team

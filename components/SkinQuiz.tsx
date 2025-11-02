@@ -165,13 +165,11 @@ export default function SkinQuiz() {
       });
 
       if (!response.ok) {
-        console.error('API error:', await response.text());
         // Still show recommendation even if save fails
       }
 
       setRecommendation(recommendedProduct);
     } catch (error) {
-      console.error('Error saving quiz response:', error);
       // Still show recommendation even if there's an error
       setRecommendation(recommendedProduct);
     } finally {
@@ -421,7 +419,6 @@ export default function SkinQuiz() {
       </section>
     );
   } catch (error) {
-    console.error('Error rendering SkinQuiz:', error);
     return (
       <section className="pt-28 sm:pt-36 pb-12 sm:pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">

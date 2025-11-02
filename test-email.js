@@ -1,29 +1,28 @@
-// Direct email test script
-require('dotenv').config({ path: '.env.local' });
+// Test Email Script
+// Run this with: node test-email.js
+
 const nodemailer = require('nodemailer');
+require('dotenv').config({ path: '.env.local' });
 
 async function testEmail() {
-  console.log('========================================');
-  console.log('Testing Hostinger Email Configuration');
-  console.log('========================================\n');
+  console.log('🧪 Testing Email Configuration...\n');
 
-  console.log('Configuration:');
-  console.log('  ADMIN_EMAIL:', process.env.ADMIN_EMAIL);
-  console.log('  EMAIL_HOST:', process.env.EMAIL_HOST);
-  console.log('  EMAIL_PORT:', process.env.EMAIL_PORT);
-  console.log('  EMAIL_SECURE:', process.env.EMAIL_SECURE);
-  console.log('  EMAIL_USER:', process.env.EMAIL_USER);
-  console.log('  EMAIL_PASS:', process.env.EMAIL_PASS ? '***' + process.env.EMAIL_PASS.slice(-3) : 'NOT SET');
+  console.log('📋 Configuration:');
+  console.log('   Host:', process.env.EMAIL_HOST);
+  console.log('   Port:', process.env.EMAIL_PORT);
+  console.log('   Secure:', process.env.EMAIL_SECURE);
+  console.log('   User:', process.env.EMAIL_USER);
+  console.log('   Pass:', process.env.EMAIL_PASS ? '***' + process.env.EMAIL_PASS.slice(-4) : 'NOT SET');
+  console.log('   Admin Email:', process.env.ADMIN_EMAIL);
   console.log('');
 
   if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-    console.error('❌ Email credentials not configured!');
-    console.error('   Check your .env.local file');
+    console.error('❌ ERROR: Email credentials not set in .env.local');
     return;
   }
 
   try {
-    console.log('Creating transporter...');
+    // Create transporter
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
       port: parseInt(process.env.EMAIL_PORT),
@@ -32,74 +31,77 @@ async function testEmail() {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
-      debug: true,
-      logger: true,
+      debug: true, // Enable debug output
+      logger: true, // Log information
     });
 
-    console.log('✓ Transporter created\n');
-
-    console.log('Verifying connection...');
+    console.log('🔌 Testing connection to SMTP server...');
     await transporter.verify();
-    console.log('✓ Connection verified!\n');
+    console.log('✅ SMTP connection successful!\n');
 
-    console.log('Sending test email...');
+    console.log('📧 Sending test email...');
     const info = await transporter.sendMail({
-      from: `"Rauha Wellness" <${process.env.EMAIL_USER}>`,
+      from: `"Rauha Wellness Test" <${process.env.EMAIL_USER}>`,
       to: process.env.ADMIN_EMAIL,
-      subject: '🧪 Test Email - Rauha Wellness',
+      subject: '✅ Test Email from Rauha Wellness',
       html: `
         <!DOCTYPE html>
         <html>
-        <body style="font-family: Arial, sans-serif; padding: 20px;">
-          <h1 style="color: #C98A53;">✅ Email Test Successful!</h1>
-          <p>This is a test email from your Rauha Wellness website.</p>
-          <p><strong>Sent from:</strong> ${process.env.EMAIL_USER}</p>
-          <p><strong>Sent to:</strong> ${process.env.ADMIN_EMAIL}</p>
-          <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
-          <hr>
-          <p style="color: #666; font-size: 12px;">
-            If you received this email, your email configuration is working correctly!
-          </p>
+        <head>
+          <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background: linear-gradient(135deg, #C98A53 0%, #C8B0A9 100%); color: white; padding: 30px; text-align: center; border-radius: 10px; }
+            .content { background: #f9f9f9; padding: 30px; margin-top: 20px; border-radius: 10px; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>🎉 Email System Working!</h1>
+            </div>
+            <div class="content">
+              <p><strong>Great news!</strong></p>
+              <p>Your Rauha Wellness email system is configured correctly and working perfectly!</p>
+              <p><strong>Configuration Details:</strong></p>
+              <ul>
+                <li>Host: ${process.env.EMAIL_HOST}</li>
+                <li>Port: ${process.env.EMAIL_PORT}</li>
+                <li>From: ${process.env.EMAIL_USER}</li>
+              </ul>
+              <p>Test sent at: ${new Date().toLocaleString()}</p>
+            </div>
+          </div>
         </body>
         </html>
       `,
       text: `
-Test Email - Rauha Wellness
+Email System Test - Rauha Wellness
 
-✅ Email Test Successful!
+Your email system is working correctly!
 
-This is a test email from your Rauha Wellness website.
+Configuration:
+- Host: ${process.env.EMAIL_HOST}
+- Port: ${process.env.EMAIL_PORT}
+- From: ${process.env.EMAIL_USER}
 
-Sent from: ${process.env.EMAIL_USER}
-Sent to: ${process.env.ADMIN_EMAIL}
-Time: ${new Date().toLocaleString()}
-
-If you received this email, your email configuration is working correctly!
+Test sent at: ${new Date().toLocaleString()}
       `.trim(),
     });
 
-    console.log('\n========================================');
-    console.log('✅ TEST EMAIL SENT SUCCESSFULLY!');
-    console.log('========================================');
-    console.log('Message ID:', info.messageId);
-    console.log('Response:', info.response);
-    console.log('\nCheck your inbox at:', process.env.ADMIN_EMAIL);
-    console.log('========================================\n');
+    console.log('✅ Test email sent successfully!');
+    console.log('   Message ID:', info.messageId);
+    console.log('   Check inbox:', process.env.ADMIN_EMAIL);
+    console.log('\n🎉 Email system is working correctly!');
 
   } catch (error) {
-    console.log('\n========================================');
-    console.log('❌ EMAIL TEST FAILED');
-    console.log('========================================');
-    console.error('Error:', error.message);
-    console.error('\nFull error:', error);
-    console.log('========================================\n');
-
-    console.log('Common Solutions:');
-    console.log('1. Verify email and password are correct');
-    console.log('2. Try port 587 instead of 465');
-    console.log('3. Check Hostinger email account is active');
-    console.log('4. Verify info@rauhawellness.com exists in Hostinger');
-    console.log('');
+    console.error('\n❌ ERROR sending test email:');
+    console.error(error);
+    console.error('\n💡 Troubleshooting tips:');
+    console.error('   1. Check your email password in .env.local');
+    console.error('   2. Verify SMTP is enabled in Hostinger control panel');
+    console.error('   3. Check if your Hostinger email account is active');
+    console.error('   4. Try logging into webmail with these credentials');
   }
 }
 

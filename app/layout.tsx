@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import AnnouncementBar from '@/components/AnnouncementBar';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import CookieConsent from '@/components/CookieConsent';
 import { BRAND_INFO, PRIMARY_KEYWORDS } from '@/lib/seo-config';
 
 export const metadata: Metadata = {
@@ -76,6 +77,21 @@ export const metadata: Metadata = {
   },
   category: 'Beauty & Personal Care',
   classification: 'Skincare',
+  icons: {
+    icon: [
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/favicon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: 'icon',
+        url: '/favicon.png',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -87,8 +103,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href={BRAND_INFO.domain} />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#C98A53" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -148,6 +162,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );
