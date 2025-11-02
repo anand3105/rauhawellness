@@ -4,6 +4,7 @@ import AnnouncementBar from '@/components/AnnouncementBar';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
+import PWAInstallPrompt from '@/components/PWAInstallPrompt';
 import { BRAND_INFO, PRIMARY_KEYWORDS } from '@/lib/seo-config';
 
 export const metadata: Metadata = {
@@ -104,9 +105,22 @@ export default function RootLayout({
       <head>
         <link rel="canonical" href={BRAND_INFO.domain} />
         <meta name="theme-color" content="#C98A53" />
+
+        {/* PWA Meta Tags */}
+        <link rel="manifest" href="/manifest.json" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Rauha Wellness" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="format-detection" content="telephone=no" />
+
+        {/* iOS Splash Screens */}
+        <link rel="apple-touch-startup-image" href="/favicon.png" />
+
+        {/* Additional PWA Tags */}
+        <meta name="application-name" content="Rauha Wellness" />
+        <meta name="msapplication-TileColor" content="#C98A53" />
+        <meta name="msapplication-tap-highlight" content="no" />
 
         {/* Structured Data - Organization */}
         <script
@@ -164,6 +178,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <CookieConsent />
+        <PWAInstallPrompt />
       </body>
     </html>
   );
