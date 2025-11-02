@@ -51,8 +51,8 @@ export const SOLUTION_KEYWORDS = [
 // Brand Information
 export const BRAND_INFO = {
   name: 'Rauha Wellness',
-  slogan: '10 Years of Skin Science',
-  description: 'Science-based skincare powered by a decade of relentless research',
+  slogan: 'Extensively Researched. Expert-Finalized',
+  description: 'Science-based skincare powered by extensive research and expert formulation',
   domain: 'https://rauhawellness.com',
   email: 'info@rauhawellness.com',
   social: {
@@ -138,7 +138,7 @@ export const DEFAULT_SEO = {
     locale: 'en_US',
     url: BRAND_INFO.domain,
     siteName: BRAND_INFO.name,
-    title: 'Rauha Wellness | 10 Years of Skin Science',
+    title: 'Rauha Wellness | Extensively Researched, Expert-Finalized Skincare',
     description:
       'Science-based skincare powered by a decade of relentless research. Discover Kumkumadi and Rosehip oils for transformative results.',
     images: [
@@ -197,7 +197,7 @@ export const PAGE_SEO = {
     ],
   },
   whyRauha: {
-    title: 'Why Rauha - 10 Years of Skin Science Research & Expertise',
+    title: 'Why Rauha - Extensively Researched, Expert-Finalized Formulations',
     description:
       'Discover the science behind Rauha Wellness. Learn about our decade-long research journey, clinical studies, and commitment to evidence-based natural skincare.',
     keywords: [

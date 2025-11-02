@@ -120,7 +120,7 @@ export default function GiveawayPage() {
               {
                 icon: '🔬',
                 title: 'Science-Based Formulas',
-                description: 'Every ingredient backed by 10 years of research and peer-reviewed studies',
+                description: 'Every ingredient backed by extensive research and peer-reviewed studies',
               },
               {
                 icon: '🌿',

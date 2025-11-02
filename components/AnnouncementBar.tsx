@@ -17,7 +17,7 @@ export default function AnnouncementBar() {
             </span>
             <span className="text-rauha-light/60">•</span>
             <span className="font-medium text-xs sm:text-sm tracking-wide">
-              10 Years of Skin Science. Expert Finalized.
+              Extensively Researched. Expert-Finalized Formulations.
             </span>
             <span className="text-rauha-light/60">•</span>
             <span className="font-medium text-xs sm:text-sm tracking-wide">
@@ -35,7 +35,7 @@ export default function AnnouncementBar() {
             </span>
             <span className="text-rauha-light/60">•</span>
             <span className="font-medium text-xs sm:text-sm tracking-wide">
-              10 Years of Skin Science. Expert Finalized.
+              Extensively Researched. Expert-Finalized Formulations.
             </span>
             <span className="text-rauha-light/60">•</span>
             <span className="font-medium text-xs sm:text-sm tracking-wide">

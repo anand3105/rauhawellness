@@ -104,13 +104,13 @@ export default function HeroSection() {
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto text-center w-full">
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-rauha-dark mb-6 sm:mb-8 leading-tight px-2" style={{ textShadow: '0 0 1px white, 0 0 2px white, 0 0 3px white' }}>
-            10 Years of Skin Science.<br />
-            <span className="text-rauha-accent">Coming Soon.</span>
+            Extensively Researched.<br />
+            <span className="text-rauha-accent">Expert-Finalized.</span>
           </h1>
 
           <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6">
             <p className="text-base sm:text-lg md:text-xl text-rauha-text leading-relaxed px-2" style={{ textShadow: '0 0 1px white, 0 0 2px white' }}>
-              Rauha is dedicated to <strong>science-based skincare</strong>, powered by a decade of relentless research.
+              Rauha is dedicated to <strong>science-based skincare</strong>, powered by extensive research and clinical studies.
               Our mission is to transform your skin using only the most <strong>researched and expert-finalized ingredients</strong>.
             </p>
 

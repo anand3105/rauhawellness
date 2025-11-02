@@ -46,7 +46,7 @@ export default function Home() {
       <ProductShowcase />
       <ResearchSection
         papers={allResearch}
-        title="Decade of Research, Science You Can Trust"
+        title="Extensive Research, Science You Can Trust"
         description="Every ingredient in our formulations is backed by peer-reviewed research from leading scientific journals worldwide. We believe in transparency and evidence-based skincare."
         maxDisplay={6}
         showBackgroundImage={true}

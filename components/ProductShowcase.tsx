@@ -29,7 +29,7 @@ export default function ProductShowcase() {
               Our Expert-Finalized Collection
             </h2>
             <p className="text-base sm:text-lg text-rauha-text max-w-2xl mx-auto px-4">
-              Two extraordinary oils. Ten years of research. Infinite transformation.
+              Two extraordinary oils. Extensively researched. Infinite transformation.
             </p>
           </div>
 

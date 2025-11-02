@@ -53,16 +53,20 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       ],
     },
     {
-      title: 'WHY RAUHA',
-      href: '/why-rauha',
+      title: 'GIVEAWAY 🎁',
+      href: '/giveaway',
     },
     {
       title: 'SKIN QUIZ',
       href: '/skin-quiz',
     },
     {
-      title: 'GIVEAWAY 🎁',
-      href: '/giveaway',
+      title: 'WHY RAUHA',
+      href: '/why-rauha',
+    },
+    {
+      title: 'ABOUT US',
+      href: '/about',
     },
     {
       title: 'CAREERS',

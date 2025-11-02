@@ -54,7 +54,7 @@ export default function Footer() {
                 />
               </Link>
               <p className="text-rauha-light/80 text-sm leading-relaxed mb-4">
-                10 years of research. Science-backed skincare. Expert finalized formulations for your skin's transformation.
+                Extensively researched. Science-backed skincare. Expert-finalized formulations for your skin's transformation.
               </p>
               <p className="text-xs text-rauha-light/60 italic mb-4">
                 Skin is our only focus. Science is our only guide.
@@ -97,18 +97,13 @@ export default function Footer() {
               <h3 className="text-lg font-bold mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/why-rauha" className="text-rauha-light/80 hover:text-rauha-accent transition-colors text-sm">
-                    Why Rauha
+                  <Link href="/giveaway" className="text-rauha-light/80 hover:text-rauha-accent transition-colors text-sm flex items-center gap-1">
+                    Giveaway Contest 🎁
                   </Link>
                 </li>
                 <li>
                   <Link href="/skin-quiz" className="text-rauha-light/80 hover:text-rauha-accent transition-colors text-sm">
                     Skin Survey
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/giveaway" className="text-rauha-light/80 hover:text-rauha-accent transition-colors text-sm flex items-center gap-1">
-                    Giveaway Contest 🎁
                   </Link>
                 </li>
                 <li>
@@ -122,14 +117,24 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <a href="/#waitlist" className="text-rauha-light/80 hover:text-rauha-accent transition-colors text-sm">
+                    Join Waitlist
+                  </a>
+                </li>
+                <li>
+                  <Link href="/why-rauha" className="text-rauha-light/80 hover:text-rauha-accent transition-colors text-sm">
+                    Why Rauha
+                  </Link>
+                </li>
+                <li>
                   <Link href="/careers" className="text-rauha-light/80 hover:text-rauha-accent transition-colors text-sm">
                     Careers
                   </Link>
                 </li>
                 <li>
-                  <a href="/#waitlist" className="text-rauha-light/80 hover:text-rauha-accent transition-colors text-sm">
-                    Join Waitlist
-                  </a>
+                  <Link href="/about" className="text-rauha-light/80 hover:text-rauha-accent transition-colors text-sm">
+                    About Us
+                  </Link>
                 </li>
               </ul>
             </div>
