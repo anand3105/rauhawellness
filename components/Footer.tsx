@@ -54,10 +54,12 @@ export default function Footer() {
                 />
               </Link>
               <p className="text-rauha-light/80 text-sm leading-relaxed mb-4">
-                Extensively researched. Science-backed skincare. Expert-finalized formulations for your skin's transformation.
+                Nature's Messenger for Modern India.
+                <br />
+                Crafted in small batches from herbs grown in Indian soil.
               </p>
               <p className="text-xs text-rauha-light/60 italic mb-4">
-                Skin is our only focus. Science is our only guide.
+                From forest to face. From earth to essence.
               </p>
 
               {/* Social Media Icons */}
@@ -187,7 +189,7 @@ export default function Footer() {
             <div>
               <h3 className="text-lg font-bold mb-4">Become a Part of Rauha Wellness</h3>
               <p className="text-rauha-light/80 text-sm mb-4">
-                Get first dibs on new drops, exclusive offers, and real skin science straight to your inbox.
+                Join the waitlist for early access, exclusive rituals, and stories from the land your oils come from.
               </p>
               <form onSubmit={handleNewsletterSubmit} className="space-y-3">
                 <div className="relative">
@@ -223,8 +225,11 @@ export default function Footer() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-rauha-light/60">
               <p>© {new Date().getFullYear()} Rauha Wellness. All rights reserved.</p>
-              <p className="text-xs">
-                Made with ❤️ for science-based skincare
+              <p className="text-xs italic text-center sm:text-right">
+                Rauha Wellness — Nature's Messenger for Modern India.
+                <br className="hidden sm:inline" />
+                <span className="hidden sm:inline"> </span>
+                From forest to face. From earth to essence.
               </p>
             </div>
           </div>

@@ -12,7 +12,9 @@ export const PRIMARY_KEYWORDS = [
   'ayurvedic skincare',
   'anti-aging oil',
   'skin brightening oil',
-  'science-based skincare',
+  'handcrafted skincare India',
+  'ISO certified skincare',
+  'cruelty-free face oil',
 ];
 
 // Secondary Keywords (Long-tail, specific)
@@ -27,6 +29,12 @@ export const SECONDARY_KEYWORDS = [
   'natural skincare routine',
   'cold-pressed rosehip oil',
   'saffron oil for skin',
+  'paraben free face oil',
+  'silicone free skincare',
+  'GMP certified skincare',
+  '100% organic ingredients',
+  'eco-conscious skincare packaging',
+  'slow made skincare',
 ];
 
 // Location-based Keywords
@@ -34,6 +42,9 @@ export const LOCATION_KEYWORDS = [
   'natural skincare India',
   'ayurvedic skincare products',
   'best face oils online',
+  'handcrafted in India skincare',
+  'Indian soil herbs skincare',
+  'made in India face oil',
 ];
 
 // Problem/Solution Keywords
@@ -51,8 +62,8 @@ export const SOLUTION_KEYWORDS = [
 // Brand Information
 export const BRAND_INFO = {
   name: 'Rauha Wellness',
-  slogan: 'Extensively Researched. Expert-Finalized',
-  description: 'Science-based skincare powered by extensive research and expert formulation',
+  slogan: 'Nature\'s Messenger for Modern India',
+  description: 'Slow-made, honest oils from Indian soil. ISO certified, GMP approved, 100% organic skincare that listens, not sells. Handcrafted in India with purity, patience, and peace.',
   domain: 'https://rauhawellness.com',
   email: 'info@rauhawellness.com',
   phone: '+91-9457355886',
@@ -69,9 +80,9 @@ export const BRAND_INFO = {
 export const PRODUCTS = {
   kumkumadi: {
     name: 'Kumkumadi Oil',
-    tagline: 'The Elixir of Luminosity',
-    shortDescription: 'Ancient Ayurvedic formula perfected by modern science for radiant, luminous skin',
-    longDescription: 'Kumkumadi Oil is a timeless Ayurvedic formulation, scientifically validated for its ability to transform skin at the cellular level. Perfected through 10 years of research for luminosity, cell repair, and a flawless, even tone.',
+    tagline: 'The Golden Stillness',
+    shortDescription: 'Saffron, sandalwood, lotus — traditional herbs that brighten, heal, and calm. A sacred ritual in every drop.',
+    longDescription: 'Kumkumadi Oil is a timeless Ayurvedic formulation, slow-made from herbs grown in Indian soil. ISO certified, 100% organic, and handcrafted in small batches with purity, patience, and peace. Brightens skin, fades dark spots, and brings luminosity naturally.',
     price: 'Coming Soon',
     size: '30ml',
     benefits: [
@@ -94,13 +105,15 @@ export const PRODUCTS = {
       'saffron oil for face',
       'natural glow oil',
       'pigmentation treatment oil',
+      'organic kumkumadi oil',
+      'handcrafted ayurvedic oil',
     ],
   },
   rosehip: {
     name: 'Rosehip Oil',
-    tagline: 'The Potent Superfood',
-    shortDescription: 'Clinically proven to boost collagen, reduce fine lines, and deeply even skin tone',
-    longDescription: 'Pure cold-pressed rosehip oil, clinically studied for its exceptional ability to support natural collagen production, reduce fine lines, and deeply even out skin tone. Nature\'s most concentrated source of essential fatty acids and trans-retinoic acid.',
+    tagline: 'The Seed of Renewal',
+    shortDescription: 'Modern yet earthy — wild rosehip, rich in vitamins and antioxidants. Nature\'s gift for repairing and reviving urban skin.',
+    longDescription: 'Pure cold-pressed rosehip oil, slow-made and handcrafted in India. ISO certified, 100% organic, and cruelty-free. Rich in essential fatty acids and trans-retinoic acid for natural collagen production, reduces fine lines, and evens skin tone with purity and patience.',
     price: 'Coming Soon',
     size: '30ml',
     benefits: [
@@ -123,6 +136,8 @@ export const PRODUCTS = {
       'natural retinol alternative',
       'rosehip seed oil',
       'vitamin c face oil',
+      'organic rosehip oil',
+      'handcrafted face oil India',
     ],
   },
 };
@@ -130,24 +145,24 @@ export const PRODUCTS = {
 // Default SEO Settings
 export const DEFAULT_SEO = {
   titleTemplate: '%s | Rauha Wellness',
-  defaultTitle: 'Rauha Wellness | Science-Based Natural Skincare',
+  defaultTitle: 'Rauha Wellness | Nature\'s Messenger for Modern India',
   description:
-    'Discover science-backed skincare powered by 10 years of research. Pure Kumkumadi and Rosehip oils for radiant, youthful skin. Pre-order now with 15% off.',
+    'Slow-made, honest oils from Indian soil. ISO certified, GMP approved, 100% organic, cruelty-free skincare. Kumkumadi & Rosehip oils handcrafted in India with purity, patience, peace.',
   canonical: BRAND_INFO.domain,
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: BRAND_INFO.domain,
     siteName: BRAND_INFO.name,
-    title: 'Rauha Wellness | Extensively Researched, Expert-Finalized Skincare',
+    title: 'Rauha Wellness | Nature\'s Messenger for Modern India',
     description:
-      'Science-based skincare powered by a decade of relentless research. Discover Kumkumadi and Rosehip oils for transformative results.',
+      'Slow-made, honest oils from Indian soil. Handcrafted, ISO certified, 100% organic skincare. Kumkumadi & Rosehip oils made with purity, patience, and peace.',
     images: [
       {
         url: `${BRAND_INFO.domain}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: 'Rauha Wellness - Science-Based Natural Skincare',
+        alt: 'Rauha Wellness - Nature\'s Messenger for Modern India',
       },
     ],
   },
@@ -161,27 +176,29 @@ export const DEFAULT_SEO = {
 // Page-specific SEO configurations
 export const PAGE_SEO = {
   home: {
-    title: 'Science-Based Natural Skincare | Research-Backed Face Oils',
+    title: 'Natural Skincare | ISO Certified, Handcrafted in India | Organic Face Oils',
     description:
-      'Discover Rauha Wellness: 10 years of skin science research in every drop. Pure Kumkumadi & Rosehip oils for radiant, youthful skin. Pre-order with 15% OFF. Launch December 2025.',
+      'Rauha Wellness: Nature\'s Messenger for Modern India. Slow-made, ISO certified, GMP approved, 100% organic Kumkumadi & Rosehip oils. Cruelty-free, paraben-free, handcrafted in small batches. Skincare that listens, not sells.',
     keywords: [
       ...PRIMARY_KEYWORDS,
       'best natural skincare brand',
-      'research-backed skincare',
-      'science-based face oils',
+      'organic certified skincare',
+      'slow skincare',
       'pure face oils',
+      'small batch skincare',
+      'eco-conscious packaging',
     ],
   },
   kumkumadi: {
-    title: 'Kumkumadi Oil - Ancient Ayurvedic Elixir | Skin Brightening Face Oil',
+    title: 'Kumkumadi Oil - ISO Certified | Handcrafted Ayurvedic Face Oil | 100% Organic',
     description:
-      'Pure Kumkumadi Oil with saffron, manjistha & licorice. Clinically proven to brighten skin, fade dark spots & boost luminosity. Research-backed Ayurvedic formula. 30ml.',
+      'The Golden Stillness. Pure Kumkumadi Oil with saffron, manjistha & licorice. ISO certified, GMP approved, handcrafted in India. Brighten skin naturally, fade dark spots. Slow-made with purity and patience. 30ml.',
     keywords: PRODUCTS.kumkumadi.keywords,
   },
   rosehip: {
-    title: 'Cold-Pressed Rosehip Oil - Natural Anti-Aging & Collagen Booster',
+    title: 'Rosehip Oil - Organic, Cold-Pressed | Cruelty-Free Anti-Aging Face Oil',
     description:
-      'Pure organic rosehip oil rich in vitamin C & omega fatty acids. Clinically proven to reduce wrinkles, boost collagen & fade scars. Natural retinol alternative. 30ml.',
+      'The Seed of Renewal. Pure organic rosehip oil rich in vitamin C & omega fatty acids. ISO certified, handcrafted in India. Reduces wrinkles, boosts collagen naturally. Paraben-free, eco-conscious packaging. 30ml.',
     keywords: PRODUCTS.rosehip.keywords,
   },
   quiz: {
@@ -198,15 +215,17 @@ export const PAGE_SEO = {
     ],
   },
   whyRauha: {
-    title: 'Why Rauha - Extensively Researched, Expert-Finalized Formulations',
+    title: 'Why Rauha - Nature\'s Messenger for Modern India | Slow-Made Skincare',
     description:
-      'Discover the science behind Rauha Wellness. Learn about our decade-long research journey, clinical studies, and commitment to evidence-based natural skincare.',
+      'Discover Rauha Wellness: Slow-made, honest oils from Indian soil. ISO certified, GMP approved, 100% organic ingredients. Skincare that listens, not sells. Purity, patience, and peace in every drop.',
     keywords: [
-      'skincare research',
-      'evidence-based skincare',
-      'clinical studies skincare',
-      'science-backed beauty',
-      'ayurvedic research',
+      'slow skincare philosophy',
+      'handcrafted in India',
+      'ISO certified skincare',
+      'organic certification',
+      'ayurvedic wisdom',
+      'sustainable skincare',
+      'cruelty-free beauty',
     ],
   },
 };

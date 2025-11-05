@@ -5,31 +5,44 @@ import { ArrowRight } from 'lucide-react';
 export default function ProductShowcase() {
   const products = [
     {
-      title: "The Elixir of Luminosity: Kumkumadi Oil",
-      description: "The ancient secret, perfected by modern science. Our most intensive research focus for luminosity, cell repair, and a flawless, even tone.",
+      title: "Kumkumadi Oil",
+      subtitle: "The Golden Stillness",
+      description: "Saffron, sandalwood, lotus — traditional herbs that brighten, heal, and calm. A sacred ritual in every drop.",
       size: "30ml",
       link: "/products/kumkumadi-oil",
-      image: "/Kumkumadioil_carton.jpg"
+      image: "/Kumkumadioil_carton.jpg",
+      accent: "gold"
     },
     {
-      title: "The Potent Superfood: Rosehip Oil",
-      description: "Clinically studied for its exceptional ability to support natural collagen production, reduce fine lines, and deeply even out skin tone.",
+      title: "Rosehip Oil",
+      subtitle: "The Seed of Renewal",
+      description: "Modern yet earthy — wild rosehip, rich in vitamins and antioxidants. Nature's gift for repairing and reviving urban skin.",
       size: "30ml",
       link: "/products/rosehip-oil",
-      image: "/Rosehipoil_carton.jpg"
+      image: "/Rosehipoil_carton.jpg",
+      accent: "rose"
     }
   ];
 
   try {
     return (
-      <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 opacity-10">
+          <Image
+            src="/ec41a3e3-7846-4108-87a7-10672992cc90.jpg"
+            alt="Background"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-rauha-dark mb-3 sm:mb-4 px-2">
-              Our Expert-Finalized Collection
+              Two Hero Oils
             </h2>
-            <p className="text-base sm:text-lg text-rauha-text max-w-2xl mx-auto px-4">
-              Two extraordinary oils. Extensively researched. Infinite transformation.
+            <p className="text-base sm:text-lg text-rauha-text max-w-2xl mx-auto px-4 italic">
+              Each product is introduced like a story — emotional, simple, sensual.
             </p>
           </div>
 
@@ -41,8 +54,8 @@ export default function ProductShowcase() {
                 className="bg-rauha-taupe/30 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 relative group block"
               >
                 <div className="absolute top-4 sm:top-6 right-4 sm:right-6 z-10">
-                  <span className="bg-rauha-subtle text-rauha-dark text-[10px] sm:text-xs font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full uppercase tracking-wide">
-                    Expert Finalized
+                  <span className="bg-rauha-accent/90 text-white text-[10px] sm:text-xs font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full uppercase tracking-wide shadow-lg">
+                    {product.subtitle}
                   </span>
                 </div>
 

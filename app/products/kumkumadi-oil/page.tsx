@@ -82,15 +82,16 @@ export default function KumukadiOilPage() {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-rauha-dark mb-3 sm:mb-4 leading-tight">
                   Kumkumadi Oil
                 </h1>
-                <p className="text-lg sm:text-xl text-rauha-accent font-semibold mb-4 sm:mb-6">
-                  The Elixir of Luminosity
+                <p className="text-lg sm:text-xl text-rauha-accent font-semibold mb-4 sm:mb-6 italic">
+                  The Golden Stillness
                 </p>
               </div>
 
               <p className="text-base sm:text-lg text-rauha-text leading-relaxed mb-6 sm:mb-8">
-              The ancient secret, perfected by modern science. Our most intensive research focus for luminosity,
-              cell repair, and a flawless, even tone. Kumkumadi Oil is a timeless Ayurvedic formulation,
-              scientifically validated for its ability to transform skin at the cellular level.
+              Saffron, sandalwood, lotus — traditional herbs that brighten, heal, and calm. In every drop lives the warmth of turmeric and the wisdom of generations. Made in small batches using traditional Ayurvedic infusion, this golden elixir is a sacred ritual in every drop.
+            </p>
+            <p className="text-sm sm:text-base text-rauha-text/70 italic mb-6 sm:mb-8">
+              "Made in silence. Meant for peace."
             </p>
 
               <div className="bg-rauha-taupe/20 rounded-2xl p-5 sm:p-6 mb-6 sm:mb-8">
@@ -125,29 +126,29 @@ export default function KumukadiOilPage() {
                 <li className="flex items-start gap-2 sm:gap-3">
                   <span className="text-rauha-accent font-bold">✓</span>
                   <div>
-                    <strong className="text-rauha-dark text-sm sm:text-base">Radiant Luminosity:</strong>
-                    <span className="text-rauha-text text-sm sm:text-base"> Brightens dull skin and enhances natural glow</span>
+                    <strong className="text-rauha-dark text-sm sm:text-base">Evens out tone & fades pigmentation:</strong>
+                    <span className="text-rauha-text text-sm sm:text-base"> Natural brightening from saffron and licorice</span>
                   </div>
                 </li>
                 <li className="flex items-start gap-2 sm:gap-3">
                   <span className="text-rauha-accent font-bold">✓</span>
                   <div>
-                    <strong className="text-rauha-dark text-sm sm:text-base">Even Skin Tone:</strong>
-                    <span className="text-rauha-text text-sm sm:text-base"> Fades dark spots, pigmentation, and blemishes</span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-2 sm:gap-3">
-                  <span className="text-rauha-accent font-bold">✓</span>
-                  <div>
-                    <strong className="text-rauha-dark text-sm sm:text-base">Cell Repair:</strong>
-                    <span className="text-rauha-text text-sm sm:text-base"> Promotes cellular regeneration and healing</span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-2 sm:gap-3">
-                  <span className="text-rauha-accent font-bold">✓</span>
-                  <div>
-                    <strong className="text-rauha-dark text-sm sm:text-base">Deep Nourishment:</strong>
+                    <strong className="text-rauha-dark text-sm sm:text-base">Deeply nourishes and hydrates:</strong>
                     <span className="text-rauha-text text-sm sm:text-base"> Rich in antioxidants and essential nutrients</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-2 sm:gap-3">
+                  <span className="text-rauha-accent font-bold">✓</span>
+                  <div>
+                    <strong className="text-rauha-dark text-sm sm:text-base">Brings soft, natural glow:</strong>
+                    <span className="text-rauha-text text-sm sm:text-base"> Enhances your skin's inherent radiance</span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-2 sm:gap-3">
+                  <span className="text-rauha-accent font-bold">✓</span>
+                  <div>
+                    <strong className="text-rauha-dark text-sm sm:text-base">Calms skin from urban stress:</strong>
+                    <span className="text-rauha-text text-sm sm:text-base"> Sandalwood soothes and restores balance</span>
                   </div>
                 </li>
               </ul>
@@ -186,20 +187,20 @@ export default function KumukadiOilPage() {
             </h2>
             <div className="space-y-3 sm:space-y-4 text-rauha-light leading-relaxed text-sm sm:text-base">
               <p>
-                Kumkumadi Oil represents the perfect marriage of ancient Ayurvedic wisdom and modern scientific validation.
-                Our formulation has undergone rigorous clinical testing to ensure efficacy and safety.
+                Kumkumadi Oil represents the perfect harmony of ancient Ayurvedic wisdom and mindful creation.
+                Made in small batches using traditional infusion methods, this golden elixir carries the warmth and healing of India's sacred herbs.
               </p>
               <p>
-                Each ingredient is selected based on peer-reviewed research demonstrating its ability to:
+                Each ingredient works gently to:
               </p>
               <ul className="list-disc list-inside space-y-1.5 sm:space-y-2 ml-2 sm:ml-4">
-                <li>Inhibit melanin production through tyrosinase inhibition</li>
-                <li>Accelerate cellular turnover and collagen synthesis</li>
-                <li>Provide powerful antioxidant protection against free radicals</li>
-                <li>Enhance skin barrier function and hydration retention</li>
+                <li>Naturally brighten and even skin tone</li>
+                <li>Restore moisture and strengthen skin's barrier</li>
+                <li>Calm inflammation and soothe stressed skin</li>
+                <li>Bring back your skin's soft, natural radiance</li>
               </ul>
-              <p className="text-rauha-accent font-semibold mt-4 sm:mt-6">
-                10 years of research. 100% science-backed. Zero compromise on quality.
+              <p className="text-rauha-accent font-semibold mt-4 sm:mt-6 italic">
+                "Made in silence. Meant for peace."
               </p>
             </div>
           </div>
@@ -222,7 +223,7 @@ export default function KumukadiOilPage() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-rauha-dark mb-1 text-sm sm:text-base">Apply</h4>
-                  <p className="text-rauha-text text-sm sm:text-base">Take 3-4 drops and gently massage into face and neck using upward circular motions</p>
+                  <p className="text-rauha-text text-sm sm:text-base">Take 3 drops of calm — gently massage into face and neck using upward, circular motions</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 sm:gap-4">

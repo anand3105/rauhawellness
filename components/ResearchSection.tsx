@@ -30,50 +30,36 @@ export default function ResearchSection({
   const displayPapers = maxDisplay ? papers.slice(0, maxDisplay) : papers;
 
   return (
-    <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {showBackgroundImage && (
-        <>
-          <div className="absolute inset-0 z-0">
-            <Image
-              src="/b632bc7b-2ea6-4866-9fb3-f2c19c51b822.jpg"
-              alt="Research laboratory background"
-              fill
-              className="object-cover opacity-50"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-white/50 via-white/40 to-white/50 z-0" />
-        </>
-      )}
-
+    <section className="relative py-8 sm:py-10 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {!showBackgroundImage && (
         <div className="absolute inset-0 bg-gradient-to-b from-white to-rauha-taupe/10" />
       )}
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-rauha-dark mb-4">
+        <div className="text-center mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-rauha-dark mb-2">
             {title}
           </h2>
-          <p className="text-lg text-rauha-text max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base text-rauha-text max-w-3xl mx-auto">
             {description}
           </p>
         </div>
 
         <div className={layout === 'horizontal'
-          ? "grid md:grid-cols-2 gap-6"
-          : "grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          ? "grid md:grid-cols-2 gap-4"
+          : "grid md:grid-cols-2 lg:grid-cols-3 gap-4"
         }>
           {displayPapers.map((paper, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-rauha-subtle/20 hover:border-rauha-accent/40 group"
+              className="bg-white rounded-xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 border border-rauha-subtle/20 hover:border-rauha-accent/40 group"
             >
-              <div className="flex items-start gap-3 mb-4">
-                <div className="p-2 bg-rauha-accent/10 rounded-lg group-hover:bg-rauha-accent/20 transition-colors">
-                  <FileText className="w-5 h-5 text-rauha-accent" />
+              <div className="flex items-start gap-2 mb-2.5">
+                <div className="p-1.5 bg-rauha-accent/10 rounded-lg group-hover:bg-rauha-accent/20 transition-colors">
+                  <FileText className="w-4 h-4 text-rauha-accent" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-bold text-rauha-dark mb-2 leading-tight text-base group-hover:text-rauha-accent transition-colors">
+                  <h3 className="font-bold text-rauha-dark mb-1 leading-tight text-sm group-hover:text-rauha-accent transition-colors">
                     {paper.title}
                   </h3>
                   <p className="text-xs text-rauha-subtle">
@@ -82,14 +68,14 @@ export default function ResearchSection({
                 </div>
               </div>
 
-              <div className="mb-4">
-                <div className="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+              <div className="mb-2.5">
+                <div className="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">
                   ✓ Positive Outcome
                 </div>
-                <p className="text-sm text-rauha-text leading-relaxed mb-2">
+                <p className="text-xs sm:text-sm text-rauha-text leading-relaxed mb-1.5">
                   <strong className="text-rauha-dark">Key Finding:</strong> {paper.outcome}
                 </p>
-                <p className="text-sm text-rauha-text leading-relaxed">
+                <p className="text-xs sm:text-sm text-rauha-text leading-relaxed">
                   {paper.summary}
                 </p>
               </div>
@@ -98,17 +84,17 @@ export default function ResearchSection({
                 href={paper.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-rauha-accent hover:text-rauha-dark font-medium text-sm transition-colors group-hover:gap-3"
+                className="inline-flex items-center gap-2 text-rauha-accent hover:text-rauha-dark font-medium text-xs sm:text-sm transition-colors group-hover:gap-3"
               >
                 Read Full Paper
-                <ExternalLink className="w-4 h-4" />
+                <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 text-center">
-          <p className="text-sm text-rauha-subtle italic">
+        <div className="mt-4 text-center">
+          <p className="text-xs sm:text-sm text-rauha-subtle italic">
             All research papers are from peer-reviewed journals and publicly accessible scientific databases.
           </p>
         </div>

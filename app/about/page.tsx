@@ -13,78 +13,82 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-rauha-light to-white">
       {/* Hero Section */}
-      <section className="relative pt-28 sm:pt-36 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-rauha-accent/5 via-rauha-light to-rauha-taupe/10" />
-
-        {/* Decorative Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-rauha-accent/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-rauha-taupe/20 rounded-full blur-3xl animate-pulse delay-700" />
-        </div>
-
-        <div className="relative z-10 max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-rauha-accent/10 px-4 py-2 rounded-full mb-6">
-            <Heart className="w-4 h-4 text-rauha-accent" />
-            <span className="text-sm font-semibold text-rauha-dark">Our Story</span>
-          </div>
-
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-rauha-dark mb-6 leading-tight">
-            Our Story.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rauha-accent to-rauha-taupe">
-              Your Journey.
-            </span>
-          </h1>
-
-          <p className="text-lg sm:text-xl md:text-2xl text-rauha-text max-w-3xl mx-auto leading-relaxed">
-            Building a world where everyone has access to safe, science-backed skincare that truly works.
-          </p>
-        </div>
-      </section>
-
-      {/* Origin Story */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+      <section className="relative pt-32 sm:pt-36 pb-10 sm:pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 opacity-10">
           <Image
-            src="/rosehips.jpg"
+            src="/0cd39c77-e471-4ca5-ab8a-3dbb5e31b1a1.jpg"
             alt="Background"
             fill
             className="object-cover"
           />
         </div>
+
+        {/* Background Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-rauha-accent/5 via-rauha-light to-rauha-taupe/10" />
+
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-10 left-10 w-48 h-48 bg-rauha-accent/10 rounded-full blur-3xl animate-breathe" />
+          <div className="absolute bottom-10 right-10 w-64 h-64 bg-rauha-taupe/20 rounded-full blur-3xl animate-breathe" style={{ animationDelay: '3s' }} />
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 bg-rauha-accent/10 px-3 py-1.5 rounded-full mb-4">
+            <Heart className="w-3.5 h-3.5 text-rauha-accent" />
+            <span className="text-xs font-semibold text-rauha-dark">Our Story</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-rauha-dark mb-4 leading-tight">
+            From Forest to Face.<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-rauha-accent to-rauha-taupe">
+              The Story of Rauha.
+            </span>
+          </h1>
+
+          <p className="text-base sm:text-lg md:text-xl text-rauha-text max-w-2xl mx-auto leading-relaxed mb-2">
+            Rauha means peace — and that's exactly what we bring back to your skin.
+          </p>
+          <p className="text-sm sm:text-base text-rauha-text/80 max-w-xl mx-auto italic">
+            Nature's Messenger for Modern India.
+          </p>
+        </div>
+      </section>
+
+      {/* Origin Story */}
+      <section className="relative py-10 sm:py-14 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
         <div className="relative z-10 max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-rauha-accent/10 px-4 py-2 rounded-full mb-6">
-                <Lightbulb className="w-4 h-4 text-rauha-accent" />
-                <span className="text-sm font-semibold text-rauha-dark">It Started in 2016</span>
+              <div className="inline-flex items-center gap-2 bg-rauha-accent/10 px-3 py-1.5 rounded-full mb-4">
+                <Lightbulb className="w-3.5 h-3.5 text-rauha-accent" />
+                <span className="text-xs font-semibold text-rauha-dark">It Started in 2016</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-rauha-dark mb-6">
-                A Journey from Concern to Creation
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-rauha-dark mb-4">
+                A Return to Roots
               </h2>
 
-              <div className="space-y-4 text-base sm:text-lg text-rauha-text/80 leading-relaxed">
+              <div className="space-y-3 text-sm sm:text-base text-rauha-text/80 leading-relaxed">
                 <p>
-                  Rauha Wellness was born from a simple observation: the cosmetics industry was filled with products that promised beauty but often compromised skin health.
+                  Rauha Wellness was born from one question — <strong className="text-rauha-accent">"What if skincare returned to the earth?"</strong>
                 </p>
 
                 <p>
-                  Founded on a passion for science and a deep concern for what people were putting on their skin, our research journey began in <strong className="text-rauha-accent">2016</strong>.
+                  We started with the soil — herbs grown with care in small Indian farms, harvested by hand, and infused slowly under natural light.
                 </p>
 
                 <p>
-                  What started as questions about ingredient safety and efficacy evolved into years of dedicated research, clinical studies, and formulation development.
+                  We don't chase perfection or promises. We believe in <strong>purity, patience, and peace</strong>.
                 </p>
 
-                <p className="text-rauha-dark font-semibold italic">
-                  "We wanted to create something that could substitute harmful cosmetics — products that truly nourish, not just beautify."
+                <p className="italic text-rauha-dark font-medium pt-1 text-sm">
+                  "We don't bottle beauty. We bottle balance."
                 </p>
               </div>
             </div>
 
-            <div className="relative h-96 sm:h-[500px] rounded-3xl overflow-hidden shadow-2xl group">
+            <div className="relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-xl group">
               <Image
                 src="/oil dropper.jpg"
                 alt="Laboratory Research - Essential Oils"
@@ -92,12 +96,12 @@ export default function AboutPage() {
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-rauha-dark/60 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                <div className="flex items-center gap-3 mb-2">
-                  <Microscope className="w-8 h-8" />
-                  <p className="text-3xl font-bold">Research-Driven</p>
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
+                <div className="flex items-center gap-2 mb-1">
+                  <Microscope className="w-5 h-5" />
+                  <p className="text-xl font-bold">Research-Driven</p>
                 </div>
-                <p className="text-lg opacity-90">Every Formula Backed by Science</p>
+                <p className="text-sm opacity-90">Every Formula Backed by Science</p>
               </div>
             </div>
           </div>
@@ -105,54 +109,63 @@ export default function AboutPage() {
       </section>
 
       {/* The Research Journey */}
-      <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-rauha-light to-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-flex items-center gap-2 bg-rauha-accent/10 px-4 py-2 rounded-full mb-6">
-              <Microscope className="w-4 h-4 text-rauha-accent" />
-              <span className="text-sm font-semibold text-rauha-dark">Science-Backed</span>
+      <section className="relative py-10 sm:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-rauha-light to-white overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 opacity-10">
+          <Image
+            src="/2b1f3ef7-bb63-4cfc-970a-76f307087f6f.jpg"
+            alt="Background"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="text-center mb-8 sm:mb-10">
+            <div className="inline-flex items-center gap-2 bg-rauha-accent/10 px-3 py-1.5 rounded-full mb-3">
+              <Microscope className="w-3.5 h-3.5 text-rauha-accent" />
+              <span className="text-xs font-semibold text-rauha-dark">Science-Backed</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-rauha-dark mb-6">
-              Built on Research, Not Hype
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-rauha-dark mb-4">
+              Made in Small Batches, Not Factories
             </h2>
 
             <p className="text-lg sm:text-xl text-rauha-text/70 max-w-3xl mx-auto">
-              Every formula, every ingredient, every claim — backed by extensive research and clinical evidence.
+              Every bottle of Rauha begins with the soil. We never rush the process, because nature never does.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
               {
-                icon: '📚',
-                title: 'Peer-Reviewed Studies',
-                description: 'Every ingredient is validated through published scientific research and clinical trials',
-              },
-              {
-                icon: '🧪',
-                title: 'Laboratory Testing',
-                description: 'Rigorous testing for purity, potency, and safety before any product reaches you',
-              },
-              {
-                icon: '🔬',
-                title: 'Continuous Research',
-                description: 'We\'re still researching, still improving, still discovering better solutions',
-              },
-              {
                 icon: '🌿',
-                title: 'Natural & Safe',
-                description: 'No harmful chemicals, no synthetic additives — just pure, effective ingredients',
+                title: '100% Natural Botanicals',
+                description: 'Handcrafted in India with herbs grown with care, harvested by hand',
               },
               {
-                icon: '✨',
-                title: 'Expert-Finalized',
-                description: 'Each formulation reviewed and approved by skincare experts and dermatologists',
+                icon: '🌾',
+                title: 'Slow-Made Process',
+                description: 'Infused slowly under natural light — we never rush what nature perfects',
+              },
+              {
+                icon: '🌼',
+                title: 'No Fillers or Synthetics',
+                description: 'No synthetic fragrance, no false claims — just pure, honest ingredients',
+              },
+              {
+                icon: '🍃',
+                title: 'Small Batch Creation',
+                description: 'Each batch is made by hand, with the patience nature deserves',
+              },
+              {
+                icon: '🌸',
+                title: 'Rooted in Tradition',
+                description: 'Ancient wisdom meets mindful creation — refined for modern life',
               },
               {
                 icon: '💚',
-                title: 'Human-Friendly',
-                description: 'Formulated with your skin\'s health and safety as the absolute priority',
+                title: 'From Earth to You',
+                description: 'We work closely with small farmers who grow and harvest every ingredient',
               },
             ].map((item, index) => (
               <div
@@ -173,7 +186,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Vision */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+      <section className="relative py-10 sm:py-14 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 opacity-5">
           <Image
@@ -184,40 +197,40 @@ export default function AboutPage() {
           />
         </div>
         <div className="relative z-10 max-w-6xl mx-auto">
-          <div className="bg-gradient-to-br from-rauha-accent/10 via-white to-rauha-taupe/10 rounded-3xl p-8 sm:p-12 lg:p-16 border border-rauha-accent/20">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full mb-6 shadow-sm">
-                <Target className="w-4 h-4 text-rauha-accent" />
-                <span className="text-sm font-semibold text-rauha-dark">Our Vision</span>
+          <div className="bg-gradient-to-br from-rauha-accent/10 via-white to-rauha-taupe/10 rounded-3xl p-6 sm:p-10 lg:p-12 border border-rauha-accent/20">
+            <div className="text-center mb-8">
+              <div className="inline-flex items-center gap-2 bg-white px-3 py-1.5 rounded-full mb-4 shadow-sm">
+                <Target className="w-3.5 h-3.5 text-rauha-accent" />
+                <span className="text-xs font-semibold text-rauha-dark">Our Vision</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-rauha-dark mb-6">
-                Everyone Deserves Good Skin
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-rauha-dark mb-4">
+                Glow That Feels Like Peace
               </h2>
 
-              <p className="text-lg sm:text-xl text-rauha-text/80 max-w-3xl mx-auto leading-relaxed mb-8">
-                We believe that healthy, glowing skin shouldn't be a privilege — it should be accessible to everyone.
+              <p className="text-base sm:text-lg text-rauha-text/80 max-w-3xl mx-auto leading-relaxed mb-6">
+                Your skin doesn't need perfection — it needs patience. When it's nourished and left to breathe, it glows on its own.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg">
-                <Users className="w-12 h-12 text-rauha-accent mb-4" />
-                <h3 className="text-2xl font-bold text-rauha-dark mb-4">
-                  Building a Community
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 sm:p-6 shadow-lg">
+                <Users className="w-10 h-10 text-rauha-accent mb-3" />
+                <h3 className="text-xl font-bold text-rauha-dark mb-3">
+                  A Ritual, Not a Routine
                 </h3>
-                <p className="text-base text-rauha-text/70 leading-relaxed">
-                  More than a brand, we're creating a skincare community. A space where people can learn, share, and access products that actually work — without the harmful additives found in conventional cosmetics.
+                <p className="text-sm sm:text-base text-rauha-text/70 leading-relaxed">
+                  Rauha is your reminder to slow down. To treat skincare not as a routine, but as a ritual — a moment to pause, breathe, and reconnect with yourself.
                 </p>
               </div>
 
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-lg">
-                <Sparkles className="w-12 h-12 text-rauha-accent mb-4" />
-                <h3 className="text-2xl font-bold text-rauha-dark mb-4">
-                  The Journey Continues
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-5 sm:p-6 shadow-lg">
+                <Sparkles className="w-10 h-10 text-rauha-accent mb-3" />
+                <h3 className="text-xl font-bold text-rauha-dark mb-3">
+                  Rooted in India
                 </h3>
-                <p className="text-base text-rauha-text/70 leading-relaxed">
-                  Our research never stops. We're constantly exploring new ingredients, studying emerging science, and working to create better, safer, more effective solutions for every skin type and concern.
+                <p className="text-sm sm:text-base text-rauha-text/70 leading-relaxed">
+                  We work closely with small farmers and local artisans who grow, harvest, and infuse every ingredient by hand. Every Rauha oil tells their story — of patience, purity, and purpose.
                 </p>
               </div>
             </div>
@@ -226,7 +239,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Commitment */}
-      <section className="relative py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-rauha-light to-white overflow-hidden">
+      <section className="relative py-10 sm:py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-rauha-light to-white overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 opacity-5">
           <Image
@@ -237,38 +250,38 @@ export default function AboutPage() {
           />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-rauha-dark mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-rauha-dark mb-6">
             Our Commitment to You
           </h2>
 
-          <div className="space-y-6 text-left bg-white rounded-2xl p-6 sm:p-10 shadow-xl border border-rauha-accent/20">
+          <div className="space-y-4 text-left bg-white rounded-2xl p-5 sm:p-8 shadow-xl border border-rauha-accent/20">
             {[
               {
-                title: 'Science Over Marketing',
-                description: 'We let research guide us, not trends. Every claim we make is backed by evidence.',
+                title: 'Nature Over Trends',
+                description: 'We follow the earth\'s rhythm, not market demands. Our oils are made when they\'re ready — not rushed.',
               },
               {
-                title: 'Transparency Always',
-                description: 'You deserve to know exactly what you\'re putting on your skin and why.',
+                title: 'Honesty Always',
+                description: 'No fillers, no false claims, no shortcuts. What you see is what your skin receives.',
               },
               {
-                title: 'Safety First',
-                description: 'No compromises on ingredient safety. If it can harm your skin, it doesn\'t belong in our products.',
+                title: 'Patience, Not Perfection',
+                description: 'Real transformation takes time. We believe in slow, steady nourishment — not instant fixes.',
               },
               {
-                title: 'Continuous Improvement',
-                description: 'We\'re never satisfied. We\'re always researching, always learning, always improving.',
+                title: 'From Earth, With Care',
+                description: 'Every ingredient is sourced with respect — for the land, for the farmers, and for your skin.',
               },
             ].map((item, index) => (
-              <div key={index} className="flex items-start gap-4 p-4 rounded-xl hover:bg-rauha-light/50 transition-colors">
-                <div className="w-8 h-8 rounded-full bg-rauha-accent/20 flex items-center justify-center flex-shrink-0 mt-1">
-                  <span className="text-rauha-accent font-bold">{index + 1}</span>
+              <div key={index} className="flex items-start gap-3 p-3 rounded-xl hover:bg-rauha-light/50 transition-colors">
+                <div className="w-7 h-7 rounded-full bg-rauha-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="text-rauha-accent font-bold text-sm">{index + 1}</span>
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-rauha-dark mb-2">
+                  <h3 className="text-base sm:text-lg font-bold text-rauha-dark mb-1.5">
                     {item.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-rauha-text/70 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-rauha-text/70 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
@@ -279,30 +292,30 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-rauha-accent/10 via-rauha-light to-rauha-taupe/10">
+      <section className="py-10 sm:py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-rauha-accent/10 via-rauha-light to-rauha-taupe/10">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-rauha-dark mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-rauha-dark mb-4">
             Join Our Journey
           </h2>
-          <p className="text-base sm:text-lg text-rauha-text/70 mb-8 leading-relaxed">
+          <p className="text-sm sm:text-base text-rauha-text/70 mb-6 leading-relaxed">
             Be part of a community that believes in science, transparency, and the right to healthy skin for everyone.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/#waitlist"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-rauha-accent to-rauha-taupe hover:from-rauha-taupe hover:to-rauha-accent text-white font-bold px-8 py-4 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto justify-center"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-rauha-accent to-rauha-taupe hover:from-rauha-taupe hover:to-rauha-accent text-white font-bold px-7 py-3 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 w-full sm:w-auto justify-center"
             >
               Join the Community
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4" />
             </Link>
 
             <Link
               href="/skin-quiz"
-              className="inline-flex items-center gap-2 text-rauha-accent hover:text-rauha-dark font-semibold transition-colors duration-300 text-base sm:text-lg"
+              className="inline-flex items-center gap-2 text-rauha-accent hover:text-rauha-dark font-semibold transition-colors duration-300 text-sm sm:text-base"
             >
               Take Our Skin Quiz
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>

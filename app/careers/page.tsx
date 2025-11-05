@@ -70,23 +70,23 @@ const jobOpenings = [
 const values = [
   {
     icon: Lightbulb,
-    title: 'Research-Driven',
-    description: 'We base every decision on scientific evidence, not trends. Our 10-year research foundation guides everything we do.'
+    title: 'Nature-Driven',
+    description: 'We follow the earth\'s rhythm, not trends. Every creation honors nature\'s wisdom and timing.'
   },
   {
     icon: Heart,
-    title: 'Customer-Obsessed',
-    description: 'Your skin is our only focus. We are committed to creating products that truly transform lives.'
+    title: 'Purpose-Obsessed',
+    description: 'We create skincare that heals — rooted in peace, made with intention, and born from the soil.'
   },
   {
     icon: Users,
     title: 'Collaborative Spirit',
-    description: 'We believe the best innovations come from diverse minds working together toward a common goal.'
+    description: 'We believe the best work comes from minds that care — working together with patience and purpose.'
   },
   {
     icon: TrendingUp,
     title: 'Continuous Growth',
-    description: 'We invest in our team development, encouraging learning and professional advancement at every step.'
+    description: 'We invest in our team, encouraging learning and growth — just like the plants we work with.'
   }
 ];
 
@@ -100,11 +100,11 @@ export default function CareersPage() {
             Join the <span className="text-rauha-accent">Rauha</span> Family
           </h1>
           <p className="text-xl sm:text-2xl text-rauha-text leading-relaxed mb-8">
-            Help us revolutionize skincare through science, research, and genuine care for people's wellbeing.
+            Help us create skincare that returns to the earth — rooted in peace, made with purpose.
           </p>
           <div className="inline-flex items-center gap-2 bg-rauha-accent/10 px-6 py-3 rounded-full">
-            <span className="text-rauha-dark font-semibold">10 years of research.</span>
-            <span className="text-rauha-text">Endless possibilities ahead.</span>
+            <span className="text-rauha-dark font-semibold">Grow with Us.</span>
+            <span className="text-rauha-text">Rooted in Purpose.</span>
           </div>
         </div>
       </section>
@@ -125,7 +125,7 @@ export default function CareersPage() {
               Why Work at <span className="text-rauha-accent">Rauha Wellness</span>?
             </h2>
             <p className="text-xl text-rauha-text max-w-3xl mx-auto">
-              We're not just building a skincare company. We're creating a movement toward science-based beauty that truly delivers results.
+              We're not just building a skincare brand. We're creating a movement — a return to nature, to honesty, and to skincare that heals.
             </p>
           </div>
 
@@ -153,21 +153,21 @@ export default function CareersPage() {
               </h2>
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Work That Matters</h3>
+                  <h3 className="text-xl font-semibold mb-2">Work That Feels Like Care</h3>
                   <p className="text-white/80">
-                    Every product we create has the potential to improve someone's confidence and quality of life. Your work here makes a real difference.
+                    Every oil we create carries peace to someone's skin. Your work here heals, nurtures, and brings calm — to others and to you.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold mb-2">Flexibility & Balance</h3>
                   <p className="text-white/80">
-                    We understand that great work comes from balanced lives. Enjoy flexible hours and remote work options where applicable.
+                    We move slowly, with intention. Just like nature, we believe balance creates beauty — in work and in life.
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">Learning & Development</h3>
+                  <h3 className="text-xl font-semibold mb-2">Learning & Growth</h3>
                   <p className="text-white/80">
-                    Access to industry conferences, research publications, and continuous training to keep you at the forefront of skincare science.
+                    Access to herbalism workshops, traditional craft learning, and the wisdom of artisans who've worked with nature for generations.
                   </p>
                 </div>
               </div>
@@ -379,7 +379,7 @@ export default function CareersPage() {
             Don't See Your Role?
           </h2>
           <p className="text-xl text-white/80 mb-10 leading-relaxed">
-            We're always open to hearing from exceptional talent. Send us your resume and tell us how you'd like to contribute to Rauha's mission.
+            We're always open to passionate souls who want to build something meaningful. Send us your story and tell us how you'd like to grow with Rauha.
           </p>
           <a
             href="mailto:hr@rauhawellness.com"

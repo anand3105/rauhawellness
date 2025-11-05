@@ -1,8 +1,11 @@
 import HeroSection from '@/components/HeroSection';
+import CertificationBanner from '@/components/CertificationBanner';
+import BrandPromise from '@/components/BrandPromise';
 import ProductShowcase from '@/components/ProductShowcase';
+import ResearchCarousel from '@/components/ResearchCarousel';
+import GlowPhilosophy from '@/components/GlowPhilosophy';
+import Testimonials from '@/components/Testimonials';
 import CTASection from '@/components/CTASection';
-import ResearchSection from '@/components/ResearchSection';
-import SkinQuizCTA from '@/components/SkinQuizCTA';
 import GiveawayCTA from '@/components/GiveawayCTA';
 import { getAllResearch } from '@/lib/research-data';
 import { Metadata } from 'next';
@@ -43,17 +46,14 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <HeroSection />
+      <CertificationBanner />
       <ProductShowcase />
-      <ResearchSection
-        papers={allResearch}
-        title="Extensive Research, Science You Can Trust"
-        description="Every ingredient in our formulations is backed by peer-reviewed research from leading scientific journals worldwide. We believe in transparency and evidence-based skincare."
-        maxDisplay={6}
-        showBackgroundImage={true}
-      />
-      <SkinQuizCTA />
+      <ResearchCarousel papers={allResearch} />
+      <GlowPhilosophy />
+      <Testimonials />
       <CTASection />
       <GiveawayCTA />
+      <BrandPromise />
     </main>
   );
 }

@@ -114,14 +114,14 @@ export default function CTASection() {
         <div className="max-w-3xl mx-auto relative z-10">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-rauha-dark mb-4 sm:mb-6 px-2">
-              Unlock the Secret.<br />
-              Join the Rauha Waitlist.
+              Good things take time —<br />
+              <span className="text-rauha-accent italic">just like us.</span>
             </h2>
 
             <p className="text-base sm:text-lg text-rauha-text leading-relaxed px-4">
-              Be the first to experience <strong>Rauha Wellness</strong>. We launch this December end.
-              Subscribe now and add your favorite oil to the Wishlist to receive a{' '}
-              <span className="text-rauha-accent font-bold">special 15% OFF</span> on launch day.
+              Join the Rauha waitlist to receive early access to fresh, hand-blended batches.
+              <br />
+              <span className="text-rauha-accent font-bold">Special 15% OFF</span> for waitlist members on launch day.
             </p>
           </div>
 

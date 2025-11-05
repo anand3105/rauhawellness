@@ -118,34 +118,34 @@ export default function GiveawayPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: '🔬',
-                title: 'Science-Based Formulas',
-                description: 'Every ingredient backed by extensive research and peer-reviewed studies',
-              },
-              {
                 icon: '🌿',
+                title: 'Handcrafted in India',
+                description: 'Made slowly in small batches with herbs grown by hand in Indian farms',
+              },
+              {
+                icon: '🌾',
                 title: 'Natural & Pure',
-                description: 'Cold-pressed oils with no harmful chemicals or synthetic additives',
+                description: 'Cold-pressed oils with no harmful chemicals, fillers, or synthetics',
               },
               {
-                icon: '✨',
-                title: 'Personalized Care',
-                description: 'Products matched to your unique skin type and concerns',
+                icon: '🌸',
+                title: 'Rooted in Peace',
+                description: 'Skincare that brings calm to your routine and radiance to your skin',
               },
               {
-                icon: '🎁',
-                title: 'Exclusive Perks',
-                description: 'Early access to new products and special community discounts',
+                icon: '🍃',
+                title: 'Slow-Made Ritual',
+                description: 'Early access to oils infused with patience, created with intention',
               },
               {
-                icon: '📚',
-                title: 'Expert Guidance',
-                description: 'Free skincare education and personalized recommendations',
+                icon: '🌼',
+                title: 'From Earth to You',
+                description: 'Stories from the land, farmers, and artisans behind every bottle',
               },
               {
                 icon: '💚',
-                title: 'Supportive Community',
-                description: 'Join thousands of people on their skincare journey',
+                title: 'A Healing Community',
+                description: 'Join souls who believe in nature, honesty, and gentle transformation',
               },
             ].map((item, index) => (
               <div
@@ -217,8 +217,8 @@ export default function GiveawayPage() {
           <h2 className="text-3xl sm:text-4xl font-bold text-rauha-dark mb-4">
             Join the Glow Revolution
           </h2>
-          <p className="text-base sm:text-lg text-rauha-text/70 mb-8 leading-relaxed">
-            Don't miss this chance to discover your perfect oil match and experience the transformative power of science-backed natural skincare.
+          <p className="text-base sm:text-lg text-rauha-text/70 mb-8 leading-relaxed italic">
+            Don't miss this chance to discover your perfect oil match and experience the gentle, earthy glow that comes from nature's care.
           </p>
           <a
             href="#entry-form"

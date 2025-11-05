@@ -10,21 +10,28 @@ export default function HeroSection() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
-  const heroImages = [
-    '/90c98e07-3c4d-4ed3-9e5f-bd1b9dfea1b5.jpg',
-    '/43e4405a-e771-4ae2-be2f-0154ee34b662.jpg',
-    '/d5bb04ee-c10b-4d57-bd92-52976284f3ac.jpg',
-    '/2b1f3ef7-bb63-4cfc-970a-76f307087f6f.jpg',
-    '/skinoil1.jpg',
+  const heroMedia = [
+    { type: 'video', src: '/rauha.mp4' },
+    { type: 'image', src: '/2b1f3ef7-bb63-4cfc-970a-76f307087f6f.jpg' },
+    { type: 'image', src: '/skinoil1.jpg' },
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
-    }, 5000); // Change image every 5 seconds
+  const currentMedia = heroMedia[currentImageIndex];
 
-    return () => clearInterval(interval);
-  }, [heroImages.length]);
+  useEffect(() => {
+    // Only set interval for images, not video
+    if (currentMedia.type === 'image') {
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroMedia.length);
+      }, 5000); // Change image every 5 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [currentImageIndex, currentMedia.type, heroMedia.length]);
+
+  const handleVideoEnd = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroMedia.length);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,22 +86,34 @@ export default function HeroSection() {
 
   try {
     return (
-      <section className="relative pt-28 sm:pt-36 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8 min-h-[600px] sm:min-h-[700px] flex items-center overflow-hidden">
-        {/* Background Image Slider */}
-        {heroImages.map((image, index) => (
+      <section className="relative pt-28 sm:pt-32 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 min-h-[500px] sm:min-h-[550px] flex items-center overflow-hidden">
+        {/* Background Media Slider */}
+        {heroMedia.map((media, index) => (
           <div
-            key={image}
+            key={media.src}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
               index === currentImageIndex ? 'opacity-60' : 'opacity-0'
             }`}
           >
-            <Image
-              src={image}
-              alt="Skincare background"
-              fill
-              className="object-cover"
-              priority={index === 0}
-            />
+            {media.type === 'video' ? (
+              <video
+                autoPlay
+                muted
+                playsInline
+                onEnded={handleVideoEnd}
+                className="w-full h-full object-cover"
+              >
+                <source src={media.src} type="video/mp4" />
+              </video>
+            ) : (
+              <Image
+                src={media.src}
+                alt="Skincare background"
+                fill
+                className="object-cover"
+                priority={index === 0}
+              />
+            )}
           </div>
         ))}
 
@@ -103,37 +122,40 @@ export default function HeroSection() {
 
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto text-center w-full">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-rauha-dark mb-6 sm:mb-8 leading-tight px-2" style={{ textShadow: '0 0 1px white, 0 0 2px white, 0 0 3px white' }}>
-            Extensively Researched.<br />
-            <span className="text-rauha-accent">Expert-Finalized.</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-rauha-dark mb-4 sm:mb-5 leading-tight px-2" style={{ textShadow: '0 0 1px white, 0 0 2px white, 0 0 3px white' }}>
+            Nature's Messenger<br />
+            <span className="text-rauha-accent">for Modern India</span>
           </h1>
 
-          <div className="max-w-3xl mx-auto space-y-4 sm:space-y-6">
-            <p className="text-base sm:text-lg md:text-xl text-rauha-text leading-relaxed px-2" style={{ textShadow: '0 0 1px white, 0 0 2px white' }}>
-              Rauha is dedicated to <strong>science-based skincare</strong>, powered by extensive research and clinical studies.
-              Our mission is to transform your skin using only the most <strong>researched and expert-finalized ingredients</strong>.
+          <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
+            <p className="text-sm sm:text-base md:text-lg text-rauha-text leading-relaxed px-2" style={{ textShadow: '0 0 1px white, 0 0 2px white' }}>
+              Crafted in small batches from herbs grown in Indian soil.
             </p>
 
-            <p className="text-sm sm:text-base md:text-lg text-rauha-dark italic font-medium px-2" style={{ textShadow: '0 0 1px white, 0 0 2px white' }}>
-              Skin is our only focus. Science is our only guide.
+            <p className="text-xs sm:text-sm md:text-base text-rauha-dark italic font-medium px-2" style={{ textShadow: '0 0 1px white, 0 0 2px white' }}>
+              Made slowly, with purpose.
             </p>
 
-            <div className="mt-8 sm:mt-10 max-w-lg mx-auto px-4">
+            <p className="text-sm sm:text-base md:text-lg text-rauha-dark font-semibold px-2 pt-1" style={{ textShadow: '0 0 1px white, 0 0 2px white' }}>
+              Rauha will heal what the world has taken from you.
+            </p>
+
+            <div className="mt-6 sm:mt-8 max-w-lg mx-auto px-4">
               {/* Join Community Box */}
-              <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-lg p-5 sm:p-6 border border-rauha-accent/20 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
-                <div className="flex items-center justify-center gap-2 mb-3">
-                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-rauha-accent animate-pulse" />
-                  <h3 className="text-base sm:text-lg font-bold text-rauha-dark text-center">
+              <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-lg p-4 sm:p-5 border border-rauha-accent/20 hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+                <div className="flex items-center justify-center gap-2 mb-2.5">
+                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rauha-accent animate-pulse" />
+                  <h3 className="text-sm sm:text-base font-bold text-rauha-dark text-center">
                     Be First to Glow
                   </h3>
-                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-rauha-accent animate-pulse" />
+                  <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rauha-accent animate-pulse" />
                 </div>
 
-                <p className="text-xs sm:text-sm text-rauha-text/80 text-center mb-4 leading-snug">
-                  Join our exclusive community for early access to science-backed skincare
+                <p className="text-xs text-rauha-text/80 text-center mb-3 leading-snug">
+                  Join our exclusive community for early access to slow-made, nature-rooted skincare
                 </p>
 
-                <form onSubmit={handleSubmit} className="space-y-3">
+                <form onSubmit={handleSubmit} className="space-y-2.5">
                   <div className="relative group">
                     <input
                       type="text"
@@ -141,14 +163,14 @@ export default function HeroSection() {
                       value={contact}
                       onChange={(e) => setContact(e.target.value)}
                       required
-                      className="w-full px-4 sm:px-5 py-2.5 sm:py-3 bg-white/50 border border-rauha-accent/30 rounded-full text-rauha-dark placeholder-rauha-text/40 focus:outline-none focus:border-rauha-accent focus:bg-white focus:shadow-md text-xs sm:text-sm transition-all duration-300"
+                      className="w-full px-3.5 sm:px-4 py-2 sm:py-2.5 bg-white/50 border border-rauha-accent/30 rounded-full text-rauha-dark placeholder-rauha-text/40 focus:outline-none focus:border-rauha-accent focus:bg-white focus:shadow-md text-xs sm:text-sm transition-all duration-300"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-gradient-to-r from-rauha-accent to-rauha-taupe hover:from-rauha-taupe hover:to-rauha-accent text-white font-semibold px-5 py-2.5 sm:py-3 rounded-full transition-all duration-500 hover:shadow-lg hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm group"
+                    className="w-full bg-gradient-to-r from-rauha-accent to-rauha-taupe hover:from-rauha-taupe hover:to-rauha-accent text-white font-semibold px-4 py-2 sm:py-2.5 rounded-full transition-all duration-500 hover:shadow-lg hover:scale-[1.02] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-xs sm:text-sm group"
                   >
                     {loading ? (
                       <span className="flex items-center gap-2">
@@ -164,13 +186,13 @@ export default function HeroSection() {
                   </button>
 
                   {message && (
-                    <p className={`text-xs sm:text-sm text-center font-medium animate-in fade-in slide-in-from-top-2 duration-300 ${message.includes('Welcome') ? 'text-green-600' : 'text-red-600'}`}>
+                    <p className={`text-xs text-center font-medium animate-in fade-in slide-in-from-top-2 duration-300 ${message.includes('Welcome') ? 'text-green-600' : 'text-red-600'}`}>
                       {message}
                     </p>
                   )}
                 </form>
 
-                <p className="text-[10px] sm:text-xs text-rauha-text/50 text-center mt-3">
+                <p className="text-[10px] sm:text-xs text-rauha-text/50 text-center mt-2.5">
                   Get exclusive early access & special offers
                 </p>
               </div>

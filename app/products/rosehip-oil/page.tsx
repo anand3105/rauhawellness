@@ -82,15 +82,16 @@ export default function RosehipOilPage() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-rauha-dark mb-4 leading-tight">
                 Rosehip Oil
               </h1>
-              <p className="text-xl text-rauha-accent font-semibold mb-6">
-                The Potent Superfood
+              <p className="text-xl text-rauha-accent font-semibold mb-6 italic">
+                The Seed of Renewal
               </p>
             </div>
 
             <p className="text-lg text-rauha-text leading-relaxed mb-6 sm:mb-8">
-              Clinically studied for its exceptional ability to support natural collagen production, reduce fine lines,
-              and deeply even out skin tone. Rosehip Oil is nature's most concentrated source of essential fatty acids
-              and trans-retinoic acid, scientifically proven to transform aging skin.
+              Modern yet earthy — wild rosehip, rich in vitamins and antioxidants. Pressed slowly from wild rose seeds of the Himalayan foothills — pure, raw, and rich with life. Nature's gift for repairing and reviving urban skin, restoring softness, balance, and quiet radiance.
+            </p>
+            <p className="text-base text-rauha-text/70 italic mb-6 sm:mb-8">
+              "Glow doesn't come from light. It comes from life."
             </p>
 
             <div className="bg-rauha-taupe/20 rounded-2xl p-6 mb-6 sm:mb-8">
@@ -125,29 +126,29 @@ export default function RosehipOilPage() {
               <li className="flex items-start gap-3">
                 <span className="text-rauha-accent font-bold">✓</span>
                 <div>
-                  <strong className="text-rauha-dark">Anti-Aging Power:</strong>
-                  <span className="text-rauha-text"> Reduces fine lines, wrinkles, and visible aging signs</span>
+                  <strong className="text-rauha-dark">Heals scars, dullness, and fine lines:</strong>
+                  <span className="text-rauha-text"> Gentle renewal from within</span>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-rauha-accent font-bold">✓</span>
                 <div>
-                  <strong className="text-rauha-dark">Collagen Boost:</strong>
-                  <span className="text-rauha-text"> Stimulates natural collagen and elastin production</span>
+                  <strong className="text-rauha-dark">Strengthens skin's barrier:</strong>
+                  <span className="text-rauha-text"> Rich in essential fatty acids</span>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-rauha-accent font-bold">✓</span>
                 <div>
-                  <strong className="text-rauha-dark">Deep Hydration:</strong>
-                  <span className="text-rauha-text"> Locks in moisture without feeling greasy</span>
+                  <strong className="text-rauha-dark">Boosts collagen naturally:</strong>
+                  <span className="text-rauha-text"> Supports your skin's natural regeneration</span>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-rauha-accent font-bold">✓</span>
                 <div>
-                  <strong className="text-rauha-dark">Texture Refinement:</strong>
-                  <span className="text-rauha-text"> Smooths rough texture and minimizes scars</span>
+                  <strong className="text-rauha-dark">Leaves a soft, earthy glow:</strong>
+                  <span className="text-rauha-text"> Natural radiance, not shine</span>
                 </div>
               </li>
             </ul>
@@ -186,21 +187,21 @@ export default function RosehipOilPage() {
           </h2>
           <div className="space-y-4 text-rauha-light leading-relaxed">
             <p>
-              Rosehip Oil is one of the most extensively researched botanical oils in dermatological science.
-              Extracted from the seeds of Rosa canina, it contains the highest concentration of essential fatty acids
-              found in any plant oil.
+              Rosehip Oil is pressed slowly from wild rose seeds — pure, unrefined, and rich with the earth's healing power.
+              Extracted with care from Rosa canina, it contains nature's most concentrated blend of essential fatty acids,
+              Vitamin C, and natural retinoids.
             </p>
             <p>
-              Clinical studies have demonstrated its remarkable efficacy:
+              Each drop works gently to:
             </p>
             <ul className="list-disc list-inside space-y-2 ml-4">
-              <li>Increases skin elasticity by up to 76% in 8 weeks</li>
-              <li>Reduces wrinkle depth by an average of 44%</li>
-              <li>Improves skin hydration levels by 58%</li>
-              <li>Fades hyperpigmentation and scars significantly</li>
+              <li>Heal and fade scars naturally</li>
+              <li>Strengthen and repair your skin's barrier</li>
+              <li>Restore moisture and softness</li>
+              <li>Bring back a natural, earthy glow</li>
             </ul>
-            <p className="text-rauha-accent font-semibold mt-6">
-              Cold-pressed. Organic. Pure potency in every drop.
+            <p className="text-rauha-accent font-semibold mt-6 italic">
+              "Glow doesn't come from light. It comes from life."
             </p>
           </div>
         </div>

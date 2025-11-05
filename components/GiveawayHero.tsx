@@ -115,8 +115,8 @@ export default function GiveawayHero() {
             </span>
           </h1>
 
-          <p className="text-lg sm:text-xl md:text-2xl text-rauha-text max-w-3xl mx-auto mb-8 leading-relaxed">
-            Win your perfect oil match + ₹500 gift card!
+          <p className="text-lg sm:text-xl md:text-2xl text-rauha-text max-w-3xl mx-auto mb-8 leading-relaxed italic">
+            Win the gift of glow — naturally. Your perfect oil match + ₹500 gift card awaits.
           </p>
 
           {/* Countdown Timer */}
@@ -234,8 +234,8 @@ export default function GiveawayHero() {
               Amazing Prizes
               <Trophy className="w-8 h-8 text-rauha-accent" />
             </h2>
-            <p className="text-base sm:text-lg text-rauha-text/70">
-              Everyone's a winner in our Rauha community!
+            <p className="text-base sm:text-lg text-rauha-text/70 italic">
+              Because peace looks good on everyone.
             </p>
           </div>
 
