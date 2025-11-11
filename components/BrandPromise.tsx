@@ -73,8 +73,8 @@ export default function BrandPromise() {
                 </div>
                 <h3 className="text-sm sm:text-base font-bold text-rauha-dark mb-1.5 group-hover:text-rauha-accent transition-colors duration-300">No synthetic fillers</h3>
                 <p className="text-xs text-rauha-text/70 leading-relaxed">Pure, plant-based formulas from nature</p>
-                <div className="mt-3 pt-3 border-t border-rauha-accent/10">
-                  <span className="text-[10px] sm:text-xs text-rauha-accent font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">✓ All Natural</span>
+                <div className="mt-3 pt-3 border-t border-rauha-green/10">
+                  <span className="text-[10px] sm:text-xs text-rauha-green font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">✓ All Natural</span>
                 </div>
               </div>
 

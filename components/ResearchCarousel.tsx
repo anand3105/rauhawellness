@@ -105,7 +105,7 @@ export default function ResearchCarousel({
                     <div className="relative h-32 bg-gradient-to-br from-rauha-accent/20 via-rauha-taupe/30 to-rauha-subtle/20 flex items-center justify-center">
                       <div className="absolute inset-0 bg-[url('/rosehips.jpg')] opacity-10 bg-cover bg-center" />
                       <div className="relative z-10 text-center px-4">
-                        <div className="inline-block bg-green-500 text-white text-xs font-bold px-3 py-1.5 rounded-full mb-2">
+                        <div className="inline-block bg-rauha-green text-white text-xs font-bold px-3 py-1.5 rounded-full mb-2">
                           ✓ Clinically Proven
                         </div>
                         <p className="text-xs text-rauha-dark/70 font-medium">
@@ -136,7 +136,7 @@ export default function ResearchCarousel({
                         href={paper.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg group"
+                        className="inline-flex items-center justify-center gap-2 w-full bg-rauha-green hover:bg-rauha-green/90 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg group"
                       >
                         Learn More
                         <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -176,7 +176,7 @@ export default function ResearchCarousel({
                 disabled={isTransitioning}
                 className={`transition-all duration-300 rounded-full ${
                   index === currentIndex
-                    ? 'bg-purple-600 w-8 h-3'
+                    ? 'bg-rauha-green w-8 h-3'
                     : 'bg-rauha-subtle/40 hover:bg-rauha-subtle w-3 h-3'
                 }`}
                 aria-label={`Go to research paper ${index + 1}`}

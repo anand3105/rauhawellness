@@ -26,6 +26,7 @@ const config: Config = {
         'rauha-taupe': '#CBBAAF',
         'rauha-text': '#49392C',
         'rauha-dark': '#191716',
+        'rauha-green': '#316750',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

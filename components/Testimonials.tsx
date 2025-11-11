@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,8 +52,20 @@ export default function Testimonials() {
 
   try {
     return (
-      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-rauha-taupe/10 via-rauha-light to-white">
-        <div className="max-w-5xl mx-auto">
+      <section className="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/0cd39c77-e471-4ca5-ab8a-3dbb5e31b1a1.jpg"
+            alt="Forest background"
+            fill
+            className="object-cover opacity-30"
+            priority={false}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-rauha-green/20 via-rauha-light/80 to-white/90" />
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-rauha-dark mb-4 sm:mb-6">
               From Forest to Face —

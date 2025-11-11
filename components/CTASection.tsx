@@ -126,8 +126,8 @@ export default function CTASection() {
           </div>
 
           {isSubmitted && (
-            <div className="mb-6 sm:mb-8 p-4 sm:p-6 bg-green-50 border-2 border-green-200 rounded-xl animate-in fade-in slide-in-from-top-5 duration-500">
-              <p className="text-green-800 font-semibold text-center text-sm sm:text-base md:text-lg">
+            <div className="mb-6 sm:mb-8 p-4 sm:p-6 bg-rauha-green/10 border-2 border-rauha-green/30 rounded-xl animate-in fade-in slide-in-from-top-5 duration-500">
+              <p className="text-rauha-green font-semibold text-center text-sm sm:text-base md:text-lg">
                 Success! Your wishlist is saved. Check your email for future updates and your 15% OFF code!
               </p>
             </div>

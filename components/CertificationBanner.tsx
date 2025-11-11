@@ -24,7 +24,9 @@ export default function CertificationBanner() {
               const Icon = cert.icon;
               return (
                 <div key={index} className="flex items-center gap-2 sm:gap-3">
-                  <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-rauha-accent flex-shrink-0" />
+                  <Icon className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 ${
+                    cert.text.includes('Organic') || cert.text.includes('Eco-Conscious') ? 'text-rauha-green' : 'text-rauha-accent'
+                  }`} />
                   <span className="text-xs sm:text-sm font-medium text-rauha-text tracking-wide">
                     {cert.text}
                   </span>
@@ -39,7 +41,9 @@ export default function CertificationBanner() {
               const Icon = cert.icon;
               return (
                 <div key={`duplicate-${index}`} className="flex items-center gap-2 sm:gap-3">
-                  <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-rauha-accent flex-shrink-0" />
+                  <Icon className={`w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 ${
+                    cert.text.includes('Organic') || cert.text.includes('Eco-Conscious') ? 'text-rauha-green' : 'text-rauha-accent'
+                  }`} />
                   <span className="text-xs sm:text-sm font-medium text-rauha-text tracking-wide">
                     {cert.text}
                   </span>

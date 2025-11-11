@@ -123,8 +123,8 @@ export default function HeroSection() {
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto text-center w-full">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-rauha-dark mb-4 sm:mb-5 leading-tight px-2" style={{ textShadow: '0 0 1px white, 0 0 2px white, 0 0 3px white' }}>
-            Nature's Messenger<br />
-            <span className="text-rauha-accent">for Modern India</span>
+            Healing What<br />
+            <span className="text-rauha-accent">the World Has Taken</span>
           </h1>
 
           <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
@@ -137,7 +137,7 @@ export default function HeroSection() {
             </p>
 
             <p className="text-sm sm:text-base md:text-lg text-rauha-dark font-semibold px-2 pt-1" style={{ textShadow: '0 0 1px white, 0 0 2px white' }}>
-              Rauha will heal what the world has taken from you.
+              From Indian soil to your soul.
             </p>
 
             <div className="mt-6 sm:mt-8 max-w-lg mx-auto px-4">
@@ -186,7 +186,7 @@ export default function HeroSection() {
                   </button>
 
                   {message && (
-                    <p className={`text-xs text-center font-medium animate-in fade-in slide-in-from-top-2 duration-300 ${message.includes('Welcome') ? 'text-green-600' : 'text-red-600'}`}>
+                    <p className={`text-xs text-center font-medium animate-in fade-in slide-in-from-top-2 duration-300 ${message.includes('Welcome') ? 'text-rauha-green' : 'text-red-600'}`}>
                       {message}
                     </p>
                   )}

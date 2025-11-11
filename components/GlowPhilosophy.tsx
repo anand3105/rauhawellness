@@ -9,7 +9,7 @@ export default function GlowPhilosophy() {
 
   try {
     return (
-      <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+      <section className="py-10 sm:py-14 px-4 sm:px-6 lg:px-8 bg-rauha-green/5 relative overflow-hidden">
         {/* Decorative background element with floating animation */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-rauha-accent/5 rounded-full blur-3xl -z-0 animate-breathe" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-rauha-taupe/10 rounded-full blur-3xl -z-0 animate-breathe" style={{ animationDelay: '3s' }} />
@@ -61,7 +61,7 @@ export default function GlowPhilosophy() {
             }`}>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
-                  <div className="w-1.5 h-1.5 bg-rauha-accent rounded-full mt-1.5 flex-shrink-0" />
+                  <div className="w-1.5 h-1.5 bg-rauha-green rounded-full mt-1.5 flex-shrink-0" />
                   <div>
                     <h3 className="text-base sm:text-lg font-semibold text-rauha-dark mb-1">From Earth to Essence</h3>
                     <p className="text-sm sm:text-base text-rauha-text/80 leading-relaxed">

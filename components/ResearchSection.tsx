@@ -69,7 +69,7 @@ export default function ResearchSection({
               </div>
 
               <div className="mb-2.5">
-                <div className="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">
+                <div className="inline-block bg-rauha-green/10 text-rauha-green text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">
                   ✓ Positive Outcome
                 </div>
                 <p className="text-xs sm:text-sm text-rauha-text leading-relaxed mb-1.5">

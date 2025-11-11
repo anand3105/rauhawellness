@@ -156,7 +156,7 @@ export default function RosehipOilPage() {
 
           <div className="bg-white rounded-2xl p-8 shadow-lg">
             <h2 className="text-2xl font-bold text-rauha-dark mb-6 flex items-center gap-3">
-              <Leaf className="w-6 h-6 text-rauha-accent" />
+              <Leaf className="w-6 h-6 text-rauha-green" />
               Key Ingredients
             </h2>
             <ul className="space-y-4">

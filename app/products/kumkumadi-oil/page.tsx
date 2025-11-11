@@ -156,7 +156,7 @@ export default function KumukadiOilPage() {
 
             <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg">
               <h2 className="text-xl sm:text-2xl font-bold text-rauha-dark mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3">
-                <Leaf className="w-5 h-5 sm:w-6 sm:h-6 text-rauha-accent" />
+                <Leaf className="w-5 h-5 sm:w-6 sm:h-6 text-rauha-green" />
                 Key Ingredients
               </h2>
               <ul className="space-y-3 sm:space-y-4">
