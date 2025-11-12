@@ -12,31 +12,15 @@ export default function GiveawayCTA() {
   }, []);
 
   return (
-    <section className="relative py-16 sm:py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative py-10 sm:py-14 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Top Border Line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-rauha-accent/20" />
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-rauha-accent/5 via-rauha-light to-rauha-taupe/10">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-10 left-10 w-64 h-64 bg-rauha-accent/30 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-rauha-taupe/40 rounded-full blur-3xl animate-pulse delay-700" />
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-10 left-10 w-48 h-48 bg-rauha-accent/30 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-10 w-64 h-64 bg-rauha-taupe/40 rounded-full blur-3xl" />
         </div>
-      </div>
-
-      {/* Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute animate-float"
-            style={{
-              left: `${10 + Math.random() * 80}%`,
-              top: `${10 + Math.random() * 80}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${4 + Math.random() * 3}s`,
-            }}
-          >
-            <Sparkles className="w-5 h-5 text-rauha-accent/30" />
-          </div>
-        ))}
       </div>
 
       {/* Content */}
@@ -45,85 +29,77 @@ export default function GiveawayCTA() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
-        <div className="bg-white/90 backdrop-blur-md rounded-3xl sm:rounded-[2.5rem] p-8 sm:p-12 lg:p-16 shadow-2xl border border-rauha-accent/30 overflow-hidden relative">
-          {/* Corner Decorations */}
-          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-rauha-accent/20 to-transparent rounded-bl-full" />
-          <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-rauha-taupe/20 to-transparent rounded-tr-full" />
+        <div className="bg-white/95 backdrop-blur-md rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl border border-rauha-accent/20 overflow-hidden relative">
+          {/* Corner Decorations - Subtle */}
+          <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-rauha-accent/10 to-transparent rounded-bl-full" />
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-rauha-taupe/10 to-transparent rounded-tr-full" />
 
           <div className="relative z-10">
             {/* Badge */}
-            <div className="flex justify-center mb-6">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-rauha-accent/20 via-amber-500/20 to-rauha-accent/20 backdrop-blur-sm px-5 py-2.5 rounded-full border border-rauha-accent/40 shadow-lg animate-pulse">
-                <Gift className="w-5 h-5 text-rauha-accent" />
-                <span className="text-sm sm:text-base font-bold text-rauha-dark uppercase tracking-wide">
-                  Limited Time Giveaway
+            <div className="flex justify-center mb-4">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-rauha-accent/15 via-amber-500/15 to-rauha-accent/15 px-4 py-1.5 rounded-full border border-rauha-accent/30">
+                <Gift className="w-4 h-4 text-rauha-accent" />
+                <span className="text-xs sm:text-sm font-bold text-rauha-dark uppercase tracking-wider">
+                  Limited Giveaway
                 </span>
-                <Trophy className="w-5 h-5 text-rauha-accent" />
               </div>
             </div>
 
             {/* Main Content */}
-            <div className="text-center mb-10">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-rauha-dark mb-6 leading-tight">
-                Find Your Glow
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-rauha-accent via-amber-500 to-rauha-accent">
-                  Win Premium Oils!
-                </span>
+            <div className="text-center mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-rauha-dark mb-3 leading-tight">
+                Win Premium Oils
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-rauha-accent to-amber-500"> + ₹500</span>
               </h2>
 
-              <p className="text-base sm:text-lg md:text-xl text-rauha-text/80 max-w-3xl mx-auto mb-8 leading-relaxed">
-                Enter our exclusive giveaway to win your perfect oil match —
-                <strong className="text-rauha-accent"> Kumkumadi</strong> or
-                <strong className="text-rose-500"> Rosehip Oil</strong> + ₹500 gift card!
+              <p className="text-sm sm:text-base text-rauha-text/70 max-w-2xl mx-auto mb-6 leading-relaxed">
+                Enter to win <strong className="text-rauha-accent">Kumkumadi</strong> or <strong className="text-rose-500">Rosehip Oil</strong> with a gift card
               </p>
 
               {/* Features Grid */}
-              <div className="grid sm:grid-cols-3 gap-4 sm:gap-6 max-w-4xl mx-auto mb-10">
-                <div className="bg-gradient-to-br from-rauha-accent/10 to-transparent rounded-2xl p-4 sm:p-6 border border-rauha-accent/20 hover:border-rauha-accent/40 transition-all duration-300 hover:scale-105">
-                  <div className="text-3xl sm:text-4xl font-bold text-rauha-accent mb-2">3</div>
-                  <div className="text-sm sm:text-base text-rauha-dark font-semibold">Grand Prize Winners</div>
-                  <div className="text-xs sm:text-sm text-rauha-text/60 mt-1">Full-size oil + gift card</div>
+              <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto mb-6">
+                <div className="bg-gradient-to-br from-rauha-accent/8 to-transparent rounded-xl p-3 sm:p-4 border border-rauha-accent/20 hover:border-rauha-accent/30 transition-all duration-300">
+                  <div className="text-2xl sm:text-3xl font-bold text-rauha-accent mb-1">3</div>
+                  <div className="text-xs sm:text-sm text-rauha-dark font-semibold">Winners</div>
+                  <div className="text-[10px] sm:text-xs text-rauha-text/60 mt-0.5">Oil + Card</div>
                 </div>
 
-                <div className="bg-gradient-to-br from-amber-500/10 to-transparent rounded-2xl p-4 sm:p-6 border border-amber-500/20 hover:border-amber-500/40 transition-all duration-300 hover:scale-105">
-                  <div className="text-3xl sm:text-4xl font-bold text-amber-600 mb-2">100</div>
-                  <div className="text-sm sm:text-base text-rauha-dark font-semibold">Early Bird Bonuses</div>
-                  <div className="text-xs sm:text-sm text-rauha-text/60 mt-1">₹300 voucher + guide</div>
+                <div className="bg-gradient-to-br from-amber-500/8 to-transparent rounded-xl p-3 sm:p-4 border border-amber-500/20 hover:border-amber-500/30 transition-all duration-300">
+                  <div className="text-2xl sm:text-3xl font-bold text-amber-600 mb-1">100</div>
+                  <div className="text-xs sm:text-sm text-rauha-dark font-semibold">Early Birds</div>
+                  <div className="text-[10px] sm:text-xs text-rauha-text/60 mt-0.5">₹300 Bonus</div>
                 </div>
 
-                <div className="bg-gradient-to-br from-rose-500/10 to-transparent rounded-2xl p-4 sm:p-6 border border-rose-500/20 hover:border-rose-500/40 transition-all duration-300 hover:scale-105">
-                  <div className="text-3xl sm:text-4xl font-bold text-rose-500 mb-2">₹500</div>
-                  <div className="text-sm sm:text-base text-rauha-dark font-semibold">Gift Card Value</div>
-                  <div className="text-xs sm:text-sm text-rauha-text/60 mt-1">For your next purchase</div>
+                <div className="bg-gradient-to-br from-rose-500/8 to-transparent rounded-xl p-3 sm:p-4 border border-rose-500/20 hover:border-rose-500/30 transition-all duration-300">
+                  <div className="text-2xl sm:text-3xl font-bold text-rose-500 mb-1">₹500</div>
+                  <div className="text-xs sm:text-sm text-rauha-dark font-semibold">Gift Card</div>
+                  <div className="text-[10px] sm:text-xs text-rauha-text/60 mt-0.5">Per Winner</div>
                 </div>
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Link
                   href="/giveaway"
-                  className="group inline-flex items-center gap-3 bg-gradient-to-r from-rauha-accent to-amber-500 hover:from-amber-500 hover:to-rauha-accent text-white font-bold px-8 py-4 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 text-base sm:text-lg w-full sm:w-auto justify-center"
+                  className="group inline-flex items-center gap-2 bg-gradient-to-r from-rauha-accent to-amber-500 hover:from-amber-500 hover:to-rauha-accent text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 text-sm sm:text-base w-full sm:w-auto justify-center"
                 >
-                  <Gift className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
-                  Enter Giveaway Now
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  <Gift className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
+                  Enter Giveaway
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
 
                 <Link
                   href="/giveaway"
-                  className="group inline-flex items-center gap-2 text-rauha-accent hover:text-rauha-dark font-semibold transition-colors duration-300 text-base sm:text-lg"
+                  className="group inline-flex items-center gap-1.5 text-rauha-accent hover:text-rauha-dark font-medium transition-colors duration-300 text-sm"
                 >
                   Learn More
-                  <Sparkles className="w-4 h-4 group-hover:animate-pulse" />
+                  <Sparkles className="w-3.5 h-3.5 group-hover:animate-pulse" />
                 </Link>
               </div>
 
               {/* Fine Print */}
-              <p className="text-xs sm:text-sm text-rauha-text/50 mt-6 max-w-2xl mx-auto">
-                Contest ends in 30 days. Open to India residents 13+.
-                <br className="hidden sm:block" />
-                Complete Instagram steps to be eligible.
+              <p className="text-[10px] sm:text-xs text-rauha-text/50 mt-4 max-w-2xl mx-auto">
+                Ends in 30 days. India residents 13+. Instagram steps required.
               </p>
             </div>
           </div>

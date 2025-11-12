@@ -62,7 +62,7 @@ export default function Testimonials() {
             className="object-cover opacity-30"
             priority={false}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-rauha-green/20 via-rauha-light/80 to-white/90" />
+          <div className="absolute inset-0 bg-gradient-to-br from-rauha-accent/20 via-rauha-light/80 to-white/90" />
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto">
@@ -132,6 +132,9 @@ export default function Testimonials() {
             </div>
           </div>
         </div>
+
+        {/* Bottom Separator Line */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-white/30" />
       </section>
     );
   } catch (error) {

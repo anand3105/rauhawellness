@@ -4,17 +4,17 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Sparkles, ArrowRight } from 'lucide-react';
 
+const heroMedia = [
+  { type: 'video', src: '/rauha.mp4' },
+  { type: 'image', src: '/2b1f3ef7-bb63-4cfc-970a-76f307087f6f.jpg' },
+  { type: 'image', src: '/skinoil1.jpg' },
+];
+
 export default function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [contact, setContact] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
-
-  const heroMedia = [
-    { type: 'video', src: '/rauha.mp4' },
-    { type: 'image', src: '/2b1f3ef7-bb63-4cfc-970a-76f307087f6f.jpg' },
-    { type: 'image', src: '/skinoil1.jpg' },
-  ];
 
   const currentMedia = heroMedia[currentImageIndex];
 
@@ -26,8 +26,15 @@ export default function HeroSection() {
       }, 5000); // Change image every 5 seconds
 
       return () => clearInterval(interval);
+    } else if (currentMedia.type === 'video') {
+      // Fallback timeout in case video doesn't trigger onEnded (e.g., video is too long or fails to load)
+      const fallbackTimeout = setTimeout(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroMedia.length);
+      }, 30000); // Move to next after 30 seconds if video doesn't end
+
+      return () => clearTimeout(fallbackTimeout);
     }
-  }, [currentImageIndex, currentMedia.type, heroMedia.length]);
+  }, [currentImageIndex, currentMedia.type]);
 
   const handleVideoEnd = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroMedia.length);
@@ -123,21 +130,13 @@ export default function HeroSection() {
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto text-center w-full">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-rauha-dark mb-4 sm:mb-5 leading-tight px-2" style={{ textShadow: '0 0 1px white, 0 0 2px white, 0 0 3px white' }}>
-            Healing What<br />
-            <span className="text-rauha-accent">the World Has Taken</span>
+            Oils Born from Forests,<br />
+            <span className="text-rauha-accent">Made to Heal the Skin</span>
           </h1>
 
           <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
             <p className="text-sm sm:text-base md:text-lg text-rauha-text leading-relaxed px-2" style={{ textShadow: '0 0 1px white, 0 0 2px white' }}>
-              Crafted in small batches from herbs grown in Indian soil.
-            </p>
-
-            <p className="text-xs sm:text-sm md:text-base text-rauha-dark italic font-medium px-2" style={{ textShadow: '0 0 1px white, 0 0 2px white' }}>
-              Made slowly, with purpose.
-            </p>
-
-            <p className="text-sm sm:text-base md:text-lg text-rauha-dark font-semibold px-2 pt-1" style={{ textShadow: '0 0 1px white, 0 0 2px white' }}>
-              From Indian soil to your soul.
+              Nature's quiet luxury, bottled for you.
             </p>
 
             <div className="mt-6 sm:mt-8 max-w-lg mx-auto px-4">

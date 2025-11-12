@@ -54,7 +54,7 @@ export default function ProductShowcase() {
                 className="bg-rauha-taupe/30 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 relative group block"
               >
                 <div className="absolute top-4 sm:top-6 right-4 sm:right-6 z-10">
-                  <span className="bg-gradient-to-r from-rauha-green to-rauha-accent text-white text-[10px] sm:text-xs font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full uppercase tracking-wide shadow-lg">
+                  <span className="bg-gradient-to-r from-rauha-accent to-rauha-taupe text-white text-[10px] sm:text-xs font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full uppercase tracking-wide shadow-lg">
                     {product.subtitle}
                   </span>
                 </div>
@@ -95,7 +95,7 @@ export default function ProductShowcase() {
                   </div>
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-rauha-green via-rauha-accent to-rauha-green transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-rauha-accent via-rauha-taupe to-rauha-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </Link>
             ))}
           </div>
