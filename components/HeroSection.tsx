@@ -131,7 +131,7 @@ export default function HeroSection() {
         <div className="relative z-10 max-w-5xl mx-auto text-center w-full">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-rauha-dark mb-4 sm:mb-5 leading-tight px-2" style={{ textShadow: '0 0 1px white, 0 0 2px white, 0 0 3px white' }}>
             Every Herb Has a Story.<br />
-            <span className="text-rauha-accent">Every Ritual Has a Soul</span>
+            <span className="text-rauha-accent">Every Ritual Has a Soul.</span>
           </h1>
 
           <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
