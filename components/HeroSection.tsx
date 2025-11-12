@@ -129,9 +129,9 @@ export default function HeroSection() {
 
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto text-center w-full">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-rauha-dark mb-4 sm:mb-5 leading-tight px-2" style={{ textShadow: '0 0 1px white, 0 0 2px white, 0 0 3px white' }}>
-            Oils Born from Forests,<br />
-            <span className="text-rauha-accent">Made to Heal the Skin</span>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-rauha-dark mb-4 sm:mb-5 leading-tight px-2" style={{ textShadow: '0 0 1px white, 0 0 2px white, 0 0 3px white' }}>
+            Every Herb Has a Story.<br />
+            <span className="text-rauha-accent">Every Ritual Has a Soul</span>
           </h1>
 
           <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">

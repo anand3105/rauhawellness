@@ -136,7 +136,7 @@ export default function ResearchCarousel({
                         href={paper.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 w-full bg-rauha-green hover:bg-rauha-green/90 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg group"
+                        className="inline-flex items-center justify-center gap-2 w-full bg-rauha-accent hover:bg-rauha-accent/90 text-rauha-dark font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-lg group"
                       >
                         Learn More
                         <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
